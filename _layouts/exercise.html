@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title | escape }}</h1>
+
+        {% if page.group %}
+        <p class="post-meta">
+            <a href="{{ '/exercises/' | relative_url }}">Exercises</a>
+            {% assign gpage = site.exercises | where: "type", "group" | where: "group", page.group | first %}
+            {% if gpage %}
+            · <a href="{{ gpage.url | relative_url }}">{{ gpage.title }}</a>
+            {% else %}
+            · {{ page.group }}
+            {% endif %}
+        </p>
+        {% endif %}
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>

@@ -4,8 +4,6 @@ type: exercise
 group: back
 primary_muscles: [lats, mid-back]
 secondary_muscles: [rear-delts, biceps, spinal-erectors]
-equipment: [dumbbells, bench_optional]
-difficulty: intermediate
 ---
 
 ## Why I use it

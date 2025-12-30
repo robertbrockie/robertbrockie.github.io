@@ -1,7 +1,15 @@
 title: "Bodybuilding Prep"
 description: "Training logs and exercise notes"
 theme: minima
+
 collections:
   exercises:
     output: true
     permalink: /exercises/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: exercises
+    values:
+      layout: exercise
