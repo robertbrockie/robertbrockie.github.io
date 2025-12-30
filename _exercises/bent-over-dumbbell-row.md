@@ -41,4 +41,4 @@ secondary_muscles: [rear-delts, biceps, spinal-erectors]
 
 ## Images
 
-![Bent Over DB Row](/assets/images/exercises/bent-over-db-row/form.webp)
+![Bent Over DB Row](/assets/images/exercises/bent-over-dumbbell-row/form.webp)
