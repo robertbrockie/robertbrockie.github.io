@@ -41,8 +41,8 @@ a:focus {
 
 // ---- Header / avatar ----
 .site-header {
-    background: $card;
-    border-bottom: 1px solid rgba(246, 226, 127, .25);
+    background: #e6e6e6; /* darker than page bg */
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
     padding: 28px 0;
 }
 
