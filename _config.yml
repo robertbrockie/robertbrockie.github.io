@@ -1,4 +1,4 @@
-title: "Brock's Bodybuilding Journal"
+title: "Brock's Body Building Journal"
 description: "Training logs and exercise notes"
 theme: minima
 
@@ -8,6 +8,12 @@ collections:
     permalink: /exercises/:name/
 
 defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
   - scope:
       path: ""
       type: exercises
