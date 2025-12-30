@@ -1,6 +1,5 @@
 ---
 title: Back
-layout: page
 type: group
 ---
 
