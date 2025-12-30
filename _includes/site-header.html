@@ -1,0 +1,20 @@
+<header class="site-header">
+    <div class="site-header__inner">
+        {% if site.profile_image %}
+        <img class="site-header__avatar" src="{{ site.profile_image | relative_url }}" alt="Profile photo"
+            loading="lazy" />
+        {% endif %}
+
+        <div class="site-header__text">
+            <a class="site-header__title" href="{{ '/' | relative_url }}">
+                {{ site.title | escape }}
+            </a>
+
+            {% if site.description %}
+            <p class="site-header__desc">
+                {{ site.description }}
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</header>

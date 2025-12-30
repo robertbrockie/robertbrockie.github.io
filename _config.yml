@@ -1,5 +1,7 @@
 title: "Brock's Body Building Journal"
 description: "Training logs and exercise notes"
+profile_image: /assets/images/bmf.png
+accent_color: "#F6E27F"
 theme: minima
 
 collections:
