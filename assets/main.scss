@@ -4,12 +4,13 @@
 @import "minima";
 
 // ---- Theme colors ----
-$bg: #0b0b0b; // near-black
-$text: #f5f5f5; // off-white
-$muted: rgba(245, 245, 245, .72);
-$accent: #f6e27f; // pale yellow
-$card: #121212; // slightly lighter black
-$border: rgba(246, 226, 127, .25);
+$bg: #ffffff;          // white background
+$text: #000000;        // black text
+$muted: rgba(0, 0, 0, .65);
+$accent: #f6e27f;      // pale yellow
+$card: #f7f7f7;        // light gray for code blocks
+$border: rgba(0, 0, 0, .12);
+
 
 // ---- Global ----
 html,
@@ -18,12 +19,17 @@ body {
     color: $text;
 }
 
-a {
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
     color: $accent;
     text-decoration: none;
 }
 
-a:hover {
+a:hover,
+a:focus {
     text-decoration: underline;
 }
 
@@ -129,8 +135,9 @@ a:hover {
 }
 
 .post-title,
-.page-heading {
-    color: $text;
+.page-heading,
+.site-header__title {
+    color: #000;
 }
 
 .post-meta {
@@ -144,14 +151,14 @@ a:hover {
 blockquote {
     border-left: 4px solid $accent;
     padding-left: 14px;
-    color: $muted;
+    color: rgba(0, 0, 0, .7);
 }
 
 pre,
 code {
     background: $card;
-    border: 1px solid rgba(255, 255, 255, .08);
-    color: $text;
+    border: 1px solid rgba(0, 0, 0, .08);
+    color: #000;
 }
 
 hr {
