@@ -4,12 +4,13 @@
 @import "minima";
 
 // ---- Theme colors ----
-$bg: #ffffff;          // white background
+$bg: #f4f4f4;          // light grey background
 $text: #000000;        // black text
 $muted: rgba(0, 0, 0, .65);
-$accent: #f6e27f;      // pale yellow
-$card: #f7f7f7;        // light gray for code blocks
+$accent: #d6b84a;      // darker warm yellow
+$card: #ffffff;        // white cards / code blocks
 $border: rgba(0, 0, 0, .12);
+
 
 
 // ---- Global ----
@@ -33,12 +34,14 @@ a:focus {
     text-decoration: underline;
 }
 
+
 .wrapper {
     max-width: 900px;
 }
 
 // ---- Header / avatar ----
 .site-header {
+    background: $card;
     border-bottom: 1px solid rgba(246, 226, 127, .25);
     padding: 28px 0;
 }
@@ -124,7 +127,10 @@ a:focus {
 // ---- Cards / posts ----
 .post,
 .page {
-    background: transparent;
+    background: $card;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
 }
 
 .post-header,
