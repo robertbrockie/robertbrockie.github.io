@@ -1,6 +1,7 @@
 ---
 title: Bent Over Dumbbell Row
 type: exercise
+layout: exercise
 group: back
 primary_muscles: [lats, mid-back]
 secondary_muscles: [rear-delts, biceps, spinal-erectors]
