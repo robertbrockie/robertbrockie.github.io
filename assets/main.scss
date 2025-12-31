@@ -44,16 +44,33 @@ a:focus {
     background: #e6e6e6; /* darker than page bg */
     border-bottom: 1px solid rgba(0, 0, 0, .08);
     padding: 28px 0;
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, .06),
+        0 1px 0 rgba(255, 255, 255, .6) inset;
+}
+
+.site-header::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        $accent,
+        transparent
+    );
+    opacity: .6;
 }
 
 .site-header__inner {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     gap: 22px;
 }
+
 
 .site-header__avatar {
     width: 110px;
@@ -62,6 +79,7 @@ a:focus {
     border-radius: 50%;
     border: 2px solid rgba(246, 226, 127, .6);
     background: #111;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .18);
 }
 
 .site-header__text {
