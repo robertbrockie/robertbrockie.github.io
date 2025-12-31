@@ -1,9 +1,11 @@
 ---
 layout: home
-title: Home
+title: Current Stats
 ---
 
-# Bodybuilding Prep Log
+Weight: 175.6 lbs
+
+Split: Pull, Push, Legs, Upper, Lower
 
 Prepping for 2026... 💪 coming soon.
 
