@@ -1,18 +1,35 @@
-<div class="site-header__text">
-    <a class="site-header__title" href="{{ '/' | relative_url }}">
-        {{ site.title | escape }}
-    </a>
+<header class="site-header">
+    <div class="site-header__inner">
+        {% if site.profile_image %}
+        <a href="{{ '/' | relative_url }}" class="site-header__avatar-link">
+            <img class="site-header__avatar" src="{{ site.profile_image | relative_url }}" alt="Profile photo"
+                loading="lazy" />
+        </a>
+        {% endif %}
 
-    {% if site.description %}
-    <p class="site-header__desc">
-        {{ site.description }}
-    </p>
-    {% endif %}
+        <div class="site-header__text">
+            <a class="site-header__title" href="{{ '/' | relative_url }}">
+                {{ site.title | escape }}
+            </a>
+        </div>
 
-    <nav class="site-header__nav">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/log/' | relative_url }}">Log</a>
-        <a href="{{ '/exercises/' | relative_url }}">Exercises</a>
-        <a href="{{ '/about/' | relative_url }}">About</a>
-    </nav>
-</div>
+        <nav class="site-header__nav">
+            <a href="{{ '/' | relative_url }}" {% if page.url=='/' %}aria-current="page" {% endif %}>
+                Home
+            </a>
+
+            <a href="{{ '/log/' | relative_url }}" {% if page.url contains '/log' %}aria-current="page" {% endif %}>
+                Log
+            </a>
+
+            <a href="{{ '/exercises/' | relative_url }}" {% if page.url contains '/exercises' %}aria-current="page" {%
+                endif %}>
+                Exercises
+            </a>
+
+            <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}aria-current="page" {% endif %}>
+                About
+            </a>
+        </nav>
+    </div>
+</header>
