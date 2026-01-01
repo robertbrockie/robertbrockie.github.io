@@ -102,6 +102,30 @@ a:focus {
     max-width: 520px;
 }
 
+// ---- Header navigation ----
+.site-header__nav {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.site-header__nav a {
+    color: $text;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a:focus {
+    border-bottom-color: $accent;
+}
+.site-header__nav a[aria-current="page"] {
+    border-bottom-color: $accent;
+}
+
 
 // ---- Banner ----
 .site-banner {
@@ -209,5 +233,11 @@ hr {
 
     .site-header__text {
         align-items: center;
+    }
+
+    .site-header__nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
     }
 }

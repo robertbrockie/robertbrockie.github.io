@@ -1,14 +1,18 @@
-<header class="site-header">
-    <div class="site-header__inner">
-        {% if site.profile_image %}
-        <img class="site-header__avatar" src="{{ site.profile_image | relative_url }}" alt="Profile photo"
-            loading="lazy" />
-        {% endif %}
+<div class="site-header__text">
+    <a class="site-header__title" href="{{ '/' | relative_url }}">
+        {{ site.title | escape }}
+    </a>
 
-        <div class="site-header__text">
-            <a class="site-header__title" href="{{ '/' | relative_url }}">
-                {{ site.title | escape }}
-            </a>
-        </div>
-    </div>
-</header>
+    {% if site.description %}
+    <p class="site-header__desc">
+        {{ site.description }}
+    </p>
+    {% endif %}
+
+    <nav class="site-header__nav">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/log/' | relative_url }}">Log</a>
+        <a href="{{ '/exercises/' | relative_url }}">Exercises</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+</div>
