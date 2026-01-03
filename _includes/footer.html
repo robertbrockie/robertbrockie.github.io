@@ -3,8 +3,12 @@
 
     <div class="site-footer__countdown">
       <span class="site-footer__label">Show countdown</span>
-      <span id="show-countdown" class="site-footer__timer">Loading…</span>
-      <span id="show-weeks" class="site-footer__weeks"></span>
+
+      <span class="countdown-pill">
+        <span id="show-countdown" class="countdown-pill__time">Loading…</span>
+        <span id="show-weeks" class="countdown-pill__weeks"></span>
+      </span>
+
       <span class="site-footer__date">July 19, 2026</span>
     </div>
 
@@ -31,9 +35,9 @@
         let diffMs = showDate - now;
 
         if (diffMs <= 0) {
-            timerEl.textContent = "Show day is here 💪";
-            if (weeksEl) weeksEl.textContent = "";
-            return;
+          timerEl.textContent = "Show day is here 💪";
+          if (weeksEl) weeksEl.textContent = "";
+          return;
         }
 
         const totalSeconds = Math.floor(diffMs / 1000);
