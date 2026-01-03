@@ -309,6 +309,42 @@ hr {
     white-space: nowrap;
 }
 
+.site-footer__meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-footer__instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 600;
+  font-size: 14px;
+  color: $text;
+  text-decoration: none;
+}
+
+.site-footer__instagram svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.site-footer__instagram:hover,
+.site-footer__instagram:focus {
+  color: $accent;
+}
+
+.site-footer__credit {
+  color: $muted;
+  font-weight: 600;
+  letter-spacing: .2px;
+  text-transform: lowercase;
+}
+
+
 @media (max-width: 600px) {
     .site-footer__inner {
         flex-direction: column;
@@ -333,5 +369,10 @@ hr {
     .site-footer__inner {
         flex-direction: column;
         text-align: center;
+    }
+
+    .site-footer__meta {
+        flex-direction: column;
+        gap: 8px;
     }
 }

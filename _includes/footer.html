@@ -1,86 +1,98 @@
-<footer class="site-footer">
-  <div class="wrapper site-footer__inner">
+<div class="wrapper site-footer__inner">
+  <div class="site-footer__countdown">
+    <span class="site-footer__label">Showtime:</span>
 
-    <div class="site-footer__countdown">
-      <span class="site-footer__label">Show countdown</span>
+    <span class="countdown-pill">
+      <span id="show-countdown" class="countdown-pill__time">Loading…</span>
+      <span id="show-weeks" class="countdown-pill__weeks"></span>
+    </span>
 
-      <span class="countdown-pill">
-        <span id="show-countdown" class="countdown-pill__time">Loading…</span>
-        <span id="show-weeks" class="countdown-pill__weeks"></span>
-      </span>
-
-      <span class="site-footer__date">July 19, 2026</span>
-    </div>
-
-    <div class="site-footer__credit">
-      a <a href="https://robertbrockie.com" target="_blank">robert brockie production
-    </div>
+    <span class="site-footer__date">July 19, 2026</span>
   </div>
 
-  <script>
-    (function () {
-      const showDate = new Date("2026-07-19T00:00:00-04:00");
+  <div class="site-footer__meta">
+    <a class="site-footer__instagram" href="https://www.instagram.com/brockmasterflex/" target="_blank"
+      rel="noopener noreferrer" aria-label="Follow me on Instagram">
+      <!-- Instagram icon (inline SVG) -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.28 3.5 3.5 5.28 3.5 7.75v8.5c0 2.47 1.78 4.25 4.25 4.25h8.5c2.47 0 4.25-1.78 4.25-4.25v-8.5c0-2.47-1.78-4.25-4.25-4.25h-8.5z" />
+        <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" />
+        <circle cx="17.5" cy="6.5" r="1.2" />
+      </svg>
+      <span>@brockmasterflex</span>
+    </a>
 
-      const timerEl = document.getElementById("show-countdown");
-      const weeksEl = document.getElementById("show-weeks");
+    <div class="site-footer__credit">
+      a robert brockie production
+    </div>
+  </div>
+</div>
 
-      if (!timerEl) return;
+<script>
+  (function () {
+    const showDate = new Date("2026-07-19T00:00:00-04:00");
 
-      function pad(n) {
-        return String(n).padStart(2, "0");
-      }
+    const timerEl = document.getElementById("show-countdown");
+    const weeksEl = document.getElementById("show-weeks");
 
-      function tick() {
-        const now = new Date();
-        let diffMs = showDate - now;
+    if (!timerEl) return;
 
-        if (diffMs <= 0) {
-          timerEl.textContent = "Show day is here 💪";
-          if (weeksEl) weeksEl.textContent = "";
-          return;
-        }
+    function pad(n) {
+      return String(n).padStart(2, "0");
+    }
 
-        const totalSeconds = Math.floor(diffMs / 1000);
-        const days = Math.floor(totalSeconds / 86400);
-        const hours = Math.floor((totalSeconds % 86400) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-        const weeksOut = Math.floor(days / 7);
-
-        timerEl.textContent =
-          `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
-
-        if (weeksEl) {
-          weeksEl.textContent =
-            weeksOut <= 1 ? "· Show week" : `· ${weeksOut} weeks out`;
-        }
-      }
-
-      tick();
-      setInterval(tick, 1000);
-    })();
-
-    (function () {
-      const showDate = new Date("2026-07-19T00:00:00-04:00");
-
+    function tick() {
       const now = new Date();
-      const diffMs = showDate - now;
+      let diffMs = showDate - now;
 
-      if (diffMs <= 0) return;
-
-      const daysOut = Math.ceil(diffMs / 86400000);
-      const weeksOut = Math.floor(daysOut / 7);
-
-      let label;
-      if (weeksOut <= 1) {
-        label = "Show week";
-      } else {
-        label = `${weeksOut} weeks out`;
+      if (diffMs <= 0) {
+        timerEl.textContent = "Show day is here 💪";
+        if (weeksEl) weeksEl.textContent = "";
+        return;
       }
 
-      if (!document.title.includes("weeks out") && !document.title.includes("Show week")) {
-        document.title = `${document.title} · ${label}`;
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const weeksOut = Math.floor(days / 7);
+
+      timerEl.textContent =
+        `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+
+      if (weeksEl) {
+        weeksEl.textContent =
+          weeksOut <= 1 ? "· Show week" : `· ${weeksOut} weeks out`;
       }
-    })();
-  </script>
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  (function () {
+    const showDate = new Date("2026-07-19T00:00:00-04:00");
+
+    const now = new Date();
+    const diffMs = showDate - now;
+
+    if (diffMs <= 0) return;
+
+    const daysOut = Math.ceil(diffMs / 86400000);
+    const weeksOut = Math.floor(daysOut / 7);
+
+    let label;
+    if (weeksOut <= 1) {
+      label = "Show week";
+    } else {
+      label = `${weeksOut} weeks out`;
+    }
+
+    if (!document.title.includes("weeks out") && !document.title.includes("Show week")) {
+      document.title = `${document.title} · ${label}`;
+    }
+  })();
+</script>
 </footer>
