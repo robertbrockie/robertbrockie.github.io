@@ -11,14 +11,12 @@ I’ve been training for a long time without a tangible goal. Now that there *is
 
 If nothing else, this will serve as some form of accountability — and hopefully be useful later when I forget why I decided any of this was a good idea.
 
----
-
-
 ## The Goal
 
 🏆 [IDFA](https://www.idfa.ca/) Men’s Bodybuilding Competition — **July 19, 2026**
 
 If you’re curious how a prep is managed over time, this is my record. Comments are enabled, so feel free to tell me what you like — or don’t.
 
---
+---
+
 
