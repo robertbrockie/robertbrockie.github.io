@@ -34,4 +34,18 @@ layout: default
     </noscript>
     {% endif %}
 
+    <nav class="post-nav">
+        {% if page.previous %}
+        <a class="post-nav__prev" href="{{ page.previous.url | relative_url }}">
+            ← {{ page.previous.title }}
+        </a>
+        {% endif %}
+
+        {% if page.next %}
+        <a class="post-nav__next" href="{{ page.next.url | relative_url }}">
+            {{ page.next.title }} →
+        </a>
+        {% endif %}
+    </nav>
+
 </article>

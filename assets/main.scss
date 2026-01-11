@@ -11,8 +11,6 @@ $accent: #d6b84a;      // darker warm yellow
 $card: #ffffff;        // white cards / code blocks
 $border: rgba(0, 0, 0, .12);
 
-
-
 // ---- Global ----
 html,
 body {
@@ -34,6 +32,23 @@ a:focus {
     text-decoration: underline;
 }
 
+blockquote {
+    border-left: 4px solid $accent;
+    padding-left: 14px;
+    color: rgba(0, 0, 0, .7);
+}
+
+pre,
+code {
+    background: $card;
+    border: 1px solid rgba(0, 0, 0, .08);
+    color: #000;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid $border;
+}
 
 .wrapper {
     max-width: 900px;
@@ -70,7 +85,6 @@ a:focus {
     align-items: center;
     gap: 22px;
 }
-
 
 .site-header__avatar {
     width: 110px;
@@ -196,22 +210,30 @@ a:focus {
     line-height: 1.7;
 }
 
-blockquote {
-    border-left: 4px solid $accent;
-    padding-left: 14px;
-    color: rgba(0, 0, 0, .7);
+// ---- Post navigation ----
+.post-nav {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid $border;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-pre,
-code {
-    background: $card;
-    border: 1px solid rgba(0, 0, 0, .08);
-    color: #000;
+.post-nav a {
+  max-width: 45%;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid $border;
+.post-nav__prev {
+  text-align: left;
+}
+
+.post-nav__next {
+  text-align: right;
+  margin-left: auto;
 }
 
 // ---- Images in content ----
@@ -342,11 +364,6 @@ hr {
 
 
 @media (max-width: 600px) {
-    .site-footer__inner {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .site-header__avatar {
         width: 96px;
         height: 96px;
@@ -360,6 +377,15 @@ hr {
         justify-content: center;
         flex-wrap: wrap;
         gap: 14px;
+    }
+
+    .post-nav {
+        flex-direction: column;
+    }
+
+    .post-nav a {
+        max-width: 100%;
+        text-align: left;
     }
 
     .site-footer__inner {
