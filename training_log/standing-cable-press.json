@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Standing Cable Press",
+    "muscles": [
+      "Chest",
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-11",
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 20
+        },
+        {
+          "weight": 75,
+          "reps": 15
+        },
+        {
+          "weight": 90,
+          "reps": 10
+        },
+        {
+          "weight": 95,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}

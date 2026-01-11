@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Decline Bench Press",
+    "title": "Dips",
     "muscles": []
   },
   "log": [
@@ -8,20 +8,20 @@
       "date": "2026-01-11",
       "sets": [
         {
-          "weight": 185,
+          "weight": 0,
+          "reps": 16
+        },
+        {
+          "weight": 35,
           "reps": 10
         },
         {
-          "weight": 190,
+          "weight": 35,
           "reps": 8
         },
         {
-          "weight": 195,
-          "reps": 8
-        },
-        {
-          "weight": 200,
-          "reps": 7
+          "weight": 0,
+          "reps": 11
         }
       ]
     }
