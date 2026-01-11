@@ -18,12 +18,13 @@ node scripts/log-workout.js
 ```
 
 The script will prompt you for:
-1. Exercise name (e.g., "Decline Bench Press")
-2. Muscles worked (e.g., "Chest, Triceps")
-3. Weight and reps for each set
-4. Type "done" when finished with an exercise
+1. Workout date (press Enter to use today's date, or enter a date like "2026-01-08")
+2. Exercise name (e.g., "Decline Bench Press")
+3. Muscles worked (e.g., "Chest, Triceps")
+4. Weight and reps for each set
+5. Press Enter when finished with an exercise
 
-Repeat for each exercise in your workout, then type "done" to finish.
+Repeat for each exercise in your workout, then press Enter to finish.
 
 ### Data Structure
 
@@ -50,9 +51,11 @@ Each exercise is stored in its own JSON file in `training_log/` (e.g., `decline-
 
 ### Features
 
+- **Custom workout dates**: Log workouts for any date, not just today (useful for backfilling old sessions)
 - **Previous workout display**: Shows your last performance when logging an existing exercise
 - **Automatic file creation**: First time logging an exercise creates the JSON file with metadata
 - **Exercise-based storage**: Makes it easy to track progress for individual exercises and build routines based on muscle groups
+- **Chronological sorting**: Workout logs are stored in descending order (most recent first)
 
 ### Workflow
 

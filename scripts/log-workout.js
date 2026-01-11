@@ -84,9 +84,9 @@ async function logExercise(exerciseName, muscles, workoutDate) {
   let setNumber = 1;
 
   while (true) {
-    const weight = await question(`  Set ${setNumber} - Weight (lbs, or 'done' to finish): `);
+    const weight = await question(`  Set ${setNumber} - Weight (lbs, or press Enter to finish): `);
 
-    if (weight.toLowerCase() === 'done' || weight.trim() === '') {
+    if (weight.trim() === '') {
       break;
     }
 
@@ -129,9 +129,9 @@ async function main() {
   console.log(`\nLogging workout for: ${workoutDate}\n`);
 
   while (true) {
-    const exerciseName = await question('\nExercise name (or "done" to finish): ');
+    const exerciseName = await question('\nExercise name (or press Enter to finish): ');
 
-    if (exerciseName.toLowerCase() === 'done' || exerciseName.trim() === '') {
+    if (exerciseName.trim() === '') {
       break;
     }
 
