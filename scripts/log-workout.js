@@ -54,14 +54,15 @@ function displayPreviousWorkout(exerciseData) {
     return;
   }
 
-  const lastWorkout = exerciseData.log[exerciseData.log.length - 1];
+  // Most recent workout is now first in the array (descending order)
+  const lastWorkout = exerciseData.log[0];
   console.log(`  Last workout: ${lastWorkout.date}`);
   lastWorkout.sets.forEach((set, idx) => {
     console.log(`    Set ${idx + 1}: ${set.weight}lbs x ${set.reps} reps`);
   });
 }
 
-async function logExercise(exerciseName, muscles) {
+async function logExercise(exerciseName, muscles, workoutDate) {
   const exerciseSlug = slugify(exerciseName);
   let exerciseData = loadExerciseData(exerciseSlug);
 
@@ -100,12 +101,13 @@ async function logExercise(exerciseName, muscles) {
   }
 
   if (sets.length > 0) {
-    const todayDate = getTodayDate();
-
     exerciseData.log.push({
-      date: todayDate,
+      date: workoutDate,
       sets: sets
     });
+
+    // Sort log by date in descending order (most recent first)
+    exerciseData.log.sort((a, b) => b.date.localeCompare(a.date));
 
     saveExerciseData(exerciseSlug, exerciseData);
   } else {
@@ -120,6 +122,12 @@ async function main() {
     fs.mkdirSync(TRAINING_LOG_DIR, { recursive: true });
   }
 
+  const todayDate = getTodayDate();
+  const dateInput = await question(`Workout date (YYYY-MM-DD, default: ${todayDate}): `);
+  const workoutDate = dateInput.trim() === '' ? todayDate : dateInput;
+
+  console.log(`\nLogging workout for: ${workoutDate}\n`);
+
   while (true) {
     const exerciseName = await question('\nExercise name (or "done" to finish): ');
 
@@ -130,7 +138,7 @@ async function main() {
     const musclesInput = await question('Muscles worked (comma-separated, e.g., "Chest, Triceps"): ');
     const muscles = musclesInput.split(',').map(m => m.trim()).filter(m => m);
 
-    await logExercise(exerciseName, muscles);
+    await logExercise(exerciseName, muscles, workoutDate);
   }
 
   console.log('\n✓ Workout logged successfully!\n');
