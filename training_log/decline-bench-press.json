@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "title": "Decline Bench Press",
+    "muscles": [
+      "Chest",
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-08",
+      "sets": [
+        {
+          "weight": 135,
+          "reps": 10
+        },
+        {
+          "weight": 185,
+          "reps": 8
+        },
+        {
+          "weight": 200,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}
