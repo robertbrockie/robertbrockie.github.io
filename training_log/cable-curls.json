@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Cable Curls",
+    "muscles": [
+      "Biceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-09",
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 15
+        },
+        {
+          "weight": 70,
+          "reps": 12
+        },
+        {
+          "weight": 80,
+          "reps": 8
+        },
+        {
+          "weight": 80,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}

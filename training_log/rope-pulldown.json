@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Rope Pulldown",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-09",
+      "sets": [
+        {
+          "weight": 80,
+          "reps": 16
+        },
+        {
+          "weight": 100,
+          "reps": 10
+        },
+        {
+          "weight": 110,
+          "reps": 8
+        },
+        {
+          "weight": 120,
+          "reps": 5
+        }
+      ]
+    }
+  ]
+}

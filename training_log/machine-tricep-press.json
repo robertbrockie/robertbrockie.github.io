@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Machine Tricep Press",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-09",
+      "sets": [
+        {
+          "weight": 130,
+          "reps": 20
+        },
+        {
+          "weight": 160,
+          "reps": 16
+        },
+        {
+          "weight": 180,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "DB Tricep Extension",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-09",
+      "sets": [
+        {
+          "weight": 22.5,
+          "reps": 10
+        },
+        {
+          "weight": 22.5,
+          "reps": 12
+        },
+        {
+          "weight": 22.5,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
