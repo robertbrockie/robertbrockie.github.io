@@ -31,6 +31,51 @@ function getTodayDate() {
   return today.toISOString().split('T')[0];
 }
 
+function getAllExercisesForDate(date) {
+  const exercises = [];
+
+  if (!fs.existsSync(TRAINING_LOG_DIR)) {
+    return exercises;
+  }
+
+  const files = fs.readdirSync(TRAINING_LOG_DIR);
+
+  for (const file of files) {
+    if (!file.endsWith('.json')) continue;
+
+    const filePath = path.join(TRAINING_LOG_DIR, file);
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+    const workoutOnDate = data.log.find(entry => entry.date === date);
+    if (workoutOnDate) {
+      exercises.push({
+        title: data.metadata.title,
+        sets: workoutOnDate.sets
+      });
+    }
+  }
+
+  return exercises;
+}
+
+function displayWorkoutSummary(date) {
+  const exercises = getAllExercisesForDate(date);
+
+  if (exercises.length === 0) {
+    console.log(`No exercises logged for ${date}`);
+    return;
+  }
+
+  console.log(`\n=== Workout Summary for ${date} ===`);
+  exercises.forEach(exercise => {
+    console.log(`\n${exercise.title}:`);
+    exercise.sets.forEach((set, idx) => {
+      console.log(`  Set ${idx + 1}: ${set.weight}lbs x ${set.reps} reps`);
+    });
+  });
+  console.log('');
+}
+
 function loadExerciseData(exerciseSlug) {
   const filePath = path.join(TRAINING_LOG_DIR, `${exerciseSlug}.json`);
 
@@ -48,10 +93,22 @@ function saveExerciseData(exerciseSlug, data) {
   console.log(`✓ Saved to ${exerciseSlug}.json`);
 }
 
-function displayPreviousWorkout(exerciseData) {
+function displayPreviousWorkout(exerciseData, specificDate = null) {
   if (!exerciseData || !exerciseData.log || exerciseData.log.length === 0) {
     console.log('  (No previous data)');
     return;
+  }
+
+  // If a specific date is provided, try to find that workout
+  if (specificDate) {
+    const workoutOnDate = exerciseData.log.find(entry => entry.date === specificDate);
+    if (workoutOnDate) {
+      console.log(`  Workout on ${workoutOnDate.date}:`);
+      workoutOnDate.sets.forEach((set, idx) => {
+        console.log(`    Set ${idx + 1}: ${set.weight}lbs x ${set.reps} reps`);
+      });
+      return;
+    }
   }
 
   // Most recent workout is now first in the array (descending order)
@@ -77,7 +134,7 @@ async function logExercise(exerciseName, muscles, workoutDate) {
     console.log(`\nCreating new exercise: ${exerciseName}`);
   } else {
     console.log(`\nLogging: ${exerciseData.metadata.title}`);
-    displayPreviousWorkout(exerciseData);
+    displayPreviousWorkout(exerciseData, workoutDate);
   }
 
   const sets = [];
@@ -126,7 +183,10 @@ async function main() {
   const dateInput = await question(`Workout date (YYYY-MM-DD, default: ${todayDate}): `);
   const workoutDate = dateInput.trim() === '' ? todayDate : dateInput;
 
-  console.log(`\nLogging workout for: ${workoutDate}\n`);
+  // Display any existing workouts for this date
+  displayWorkoutSummary(workoutDate);
+
+  console.log(`Logging workout for: ${workoutDate}\n`);
 
   while (true) {
     const exerciseName = await question('\nExercise name (or press Enter to finish): ');
