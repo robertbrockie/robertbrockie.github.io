@@ -14,7 +14,8 @@
         </div>
 
         <nav class="site-header__nav">
-            <a href="{{ '/search/' | relative_url }}">Search</a>
+            <a href="{{ '/search/' | relative_url }}" {% if page.url contains '/search' %}aria-current="page" {% endif
+                %}>Search</a>
 
             <!--
             <a href="{{ '/exercises/' | relative_url }}" {% if page.url contains '/exercises' %}aria-current="page" {%
