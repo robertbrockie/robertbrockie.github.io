@@ -2,11 +2,10 @@
 layout: null
 permalink: /search.json
 ---
-
 [
     {% for post in site.posts %
     }
-  {
+    {
         "title": {
             { post.title | jsonify
             }
@@ -27,6 +26,6 @@ permalink: /search.json
     },
     {% endunless %
     }
-{% endfor %
+  {% endfor %
     }
 ]
