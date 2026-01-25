@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Tricep Pushdown",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-18",
+      "sets": [
+        {
+          "weight": 90,
+          "reps": 16
+        },
+        {
+          "weight": 135,
+          "reps": 12
+        },
+        {
+          "weight": 150,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
