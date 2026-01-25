@@ -499,23 +499,25 @@ hr {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
-}
 
-.progress-stat {
-  background: $bg;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-}
+  .progress-stat {
+    background: $bg;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid $border;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
-.progress-stat__value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: $text;
-}
+    .progress-stat__value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $text;
+    }
 
-.progress-stat__label {
-  font-size: 0.85rem;
-  color: $muted;
-  margin-top: 0.25rem;
+    .progress-stat__label {
+      font-size: 0.85rem;
+      color: $muted;
+      margin-top: 0.25rem;
+    }
+  }
 }
