@@ -26,6 +26,31 @@
           "reps": 6
         }
       ]
+    },
+    {
+      "date": "2026-01-17",
+      "sets": [
+        {
+          "weight": 0,
+          "reps": 8
+        },
+        {
+          "weight": 25,
+          "reps": 3
+        },
+        {
+          "weight": 25,
+          "reps": 3
+        },
+        {
+          "weight": 25,
+          "reps": 2
+        },
+        {
+          "weight": 0,
+          "reps": 6
+        }
+      ]
     }
   ]
 }

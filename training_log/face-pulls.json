@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Face Pulls",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-17",
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 16
+        },
+        {
+          "weight": 75,
+          "reps": 15
+        },
+        {
+          "weight": 90,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

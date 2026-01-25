@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Seat Assisted Lat Prayers",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-17",
+      "sets": [
+        {
+          "weight": 75,
+          "reps": 15
+        },
+        {
+          "weight": 90,
+          "reps": 14
+        },
+        {
+          "weight": 105,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Seated Cable Pulldown",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-17",
+      "sets": [
+        {
+          "weight": 135,
+          "reps": 12
+        },
+        {
+          "weight": 150,
+          "reps": 10
+        },
+        {
+          "weight": 180,
+          "reps": 6
+        },
+        {
+          "weight": 185,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}
