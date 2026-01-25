@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Squat",
+    "muscles": [
+      "Leg"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-25",
+      "sets": [
+        {
+          "weight": 225,
+          "reps": 15
+        },
+        {
+          "weight": 275,
+          "reps": 8
+        },
+        {
+          "weight": 285,
+          "reps": 6
+        },
+        {
+          "weight": 290,
+          "reps": 7
+        }
+      ]
+    }
+  ]
+}

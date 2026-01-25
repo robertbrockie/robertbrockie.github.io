@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "title": "Leg Curls - Seated",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-25",
+      "sets": [
+        {
+          "weight": 135,
+          "reps": 12
+        },
+        {
+          "weight": 150,
+          "reps": 10
+        },
+        {
+          "weight": 150,
+          "reps": 10
+        },
+        {
+          "weight": 180,
+          "reps": 6
+        },
+        {
+          "weight": 210,
+          "reps": 4
+        }
+      ]
+    }
+  ]
+}

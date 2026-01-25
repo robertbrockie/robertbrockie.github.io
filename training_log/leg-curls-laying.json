@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Leg Curls - Laying",
+    "muscles": [
+      "Leg"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-25",
+      "sets": [
+        {
+          "weight": 90,
+          "reps": 12
+        },
+        {
+          "weight": 110,
+          "reps": 5
+        },
+        {
+          "weight": 100,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}

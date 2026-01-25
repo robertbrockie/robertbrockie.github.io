@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Calf Raises",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-25",
+      "sets": [
+        {
+          "weight": 330,
+          "reps": 14
+        },
+        {
+          "weight": 390,
+          "reps": 10
+        },
+        {
+          "weight": 390,
+          "reps": 10
+        },
+        {
+          "weight": 390,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
