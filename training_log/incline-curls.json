@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Incline Curls",
+    "muscles": [
+      "Biceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-23",
+      "sets": [
+        {
+          "weight": 20,
+          "reps": 10
+        },
+        {
+          "weight": 20,
+          "reps": 12
+        },
+        {
+          "weight": 22.5,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}

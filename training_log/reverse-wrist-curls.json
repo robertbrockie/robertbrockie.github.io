@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Reverse Wrist Curls",
+    "muscles": [
+      "Forearms"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-23",
+      "sets": [
+        {
+          "weight": 20,
+          "reps": 18
+        },
+        {
+          "weight": 20,
+          "reps": 16
+        },
+        {
+          "weight": 20,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}

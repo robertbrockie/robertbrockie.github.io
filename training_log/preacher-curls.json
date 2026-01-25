@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Preacher Curls",
+    "muscles": [
+      "Biceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-23",
+      "sets": [
+        {
+          "weight": 65,
+          "reps": 10
+        },
+        {
+          "weight": 70,
+          "reps": 8
+        },
+        {
+          "weight": 75,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}

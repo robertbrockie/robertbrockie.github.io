@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Skull Crushers",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-23",
+      "sets": [
+        {
+          "weight": 55,
+          "reps": 14
+        },
+        {
+          "weight": 75,
+          "reps": 10
+        },
+        {
+          "weight": 85,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}

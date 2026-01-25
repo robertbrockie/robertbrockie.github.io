@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Wrist Curls",
+    "muscles": [
+      "Forearms"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-23",
+      "sets": [
+        {
+          "weight": 20,
+          "reps": 25
+        },
+        {
+          "weight": 20,
+          "reps": 22
+        },
+        {
+          "weight": 20,
+          "reps": 20
+        }
+      ]
+    }
+  ]
+}
