@@ -93,6 +93,28 @@ function saveExerciseData(exerciseSlug, data) {
   console.log(`✓ Saved to ${exerciseSlug}.json`);
 }
 
+function generateExerciseIndex() {
+  const exercises = [];
+  const files = fs.readdirSync(TRAINING_LOG_DIR);
+
+  for (const file of files) {
+    if (!file.endsWith('.json') || file === 'index.json') continue;
+
+    const filePath = path.join(TRAINING_LOG_DIR, file);
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+    exercises.push({
+      slug: file.replace('.json', ''),
+      title: data.metadata.title
+    });
+  }
+
+  exercises.sort((a, b) => a.title.localeCompare(b.title));
+
+  const indexPath = path.join(TRAINING_LOG_DIR, 'index.json');
+  fs.writeFileSync(indexPath, JSON.stringify(exercises, null, 2));
+}
+
 function displayPreviousWorkout(exerciseData, specificDate = null) {
   if (!exerciseData || !exerciseData.log || exerciseData.log.length === 0) {
     console.log('  (No previous data)');
@@ -207,6 +229,9 @@ async function main() {
 
     await logExercise(exerciseName, muscles, workoutDate);
   }
+
+  // Update the exercise index for the progress page
+  generateExerciseIndex();
 
   console.log('\n✓ Workout logged successfully!\n');
   rl.close();
