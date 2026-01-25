@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Hip Abductor",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-22",
+      "sets": [
+        {
+          "weight": 140,
+          "reps": 20
+        },
+        {
+          "weight": 150,
+          "reps": 15
+        },
+        {
+          "weight": 180,
+          "reps": 12
+        },
+        {
+          "weight": 200,
+          "reps": 5
+        }
+      ]
+    }
+  ]
+}
