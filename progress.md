@@ -3,112 +3,47 @@ layout: default
 title: Progress
 ---
 
-<style>
-  .exercise-selector {
-    margin-bottom: 2rem;
-  }
+# Progress Tracker
 
-  .exercise-selector select {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 250px;
-  }
-
-  .charts-container {
-    display: grid;
-    gap: 2rem;
-  }
-
-  .chart-wrapper {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-
-  .chart-wrapper h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #333;
-  }
-
-  .no-data {
-    text-align: center;
-    padding: 2rem;
-    color: #666;
-  }
-
-  .exercise-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .stat-card {
-    background: #f8f8f8;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .stat-card .value {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-
-  .stat-card .label {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 0.25rem;
-  }
-</style>
-
-<h1>Progress Tracker</h1>
-
-<div class="exercise-selector">
+<div class="progress-selector">
   <label for="exercise-select">Select Exercise: </label>
   <select id="exercise-select">
     <option value="">-- Choose an exercise --</option>
   </select>
 </div>
 
-<div id="stats-container" class="exercise-stats" style="display: none;">
-  <div class="stat-card">
-    <div class="value" id="stat-sessions">-</div>
-    <div class="label">Sessions</div>
+<div id="stats-container" class="progress-stats" style="display: none;">
+  <div class="progress-stat">
+    <div class="progress-stat__value" id="stat-sessions">-</div>
+    <div class="progress-stat__label">Sessions</div>
   </div>
-  <div class="stat-card">
-    <div class="value" id="stat-max-weight">-</div>
-    <div class="label">Max Weight (lbs)</div>
+  <div class="progress-stat">
+    <div class="progress-stat__value" id="stat-max-weight">-</div>
+    <div class="progress-stat__label">Max Weight (lbs)</div>
   </div>
-  <div class="stat-card">
-    <div class="value" id="stat-max-volume">-</div>
-    <div class="label">Max Volume (lbs)</div>
+  <div class="progress-stat">
+    <div class="progress-stat__value" id="stat-max-volume">-</div>
+    <div class="progress-stat__label">Max Volume (lbs)</div>
   </div>
-  <div class="stat-card">
-    <div class="value" id="stat-total-sets">-</div>
-    <div class="label">Total Sets</div>
+  <div class="progress-stat">
+    <div class="progress-stat__value" id="stat-total-sets">-</div>
+    <div class="progress-stat__label">Total Sets</div>
   </div>
 </div>
 
-<div class="charts-container">
-  <div class="chart-wrapper">
+<div class="progress-charts">
+  <div class="progress-chart">
     <h3>Weight Progression (Max per Session)</h3>
     <canvas id="weightChart"></canvas>
   </div>
 
-  <div class="chart-wrapper">
+  <div class="progress-chart">
     <h3>Volume Progression (Total Weight x Reps per Session)</h3>
     <canvas id="volumeChart"></canvas>
   </div>
 </div>
 
-<div id="no-data" class="no-data" style="display: none;">
+<div id="no-data" class="progress-no-data">
   <p>Select an exercise to view your progress.</p>
 </div>
 
@@ -118,7 +53,6 @@ title: Progress
   let weightChart = null;
   let volumeChart = null;
 
-  // Load exercise index and populate dropdown
   async function loadExerciseIndex() {
     try {
       const response = await fetch(`${BASE_URL}/index.json`);
@@ -136,7 +70,6 @@ title: Progress
     }
   }
 
-  // Load exercise data and render charts
   async function loadExerciseData(slug) {
     if (!slug) {
       document.getElementById('stats-container').style.display = 'none';
@@ -162,10 +95,8 @@ title: Progress
   function updateStats(data) {
     const log = data.log;
 
-    // Sessions count
     document.getElementById('stat-sessions').textContent = log.length;
 
-    // Max weight ever lifted
     let maxWeight = 0;
     let totalSets = 0;
     let maxVolume = 0;
@@ -199,17 +130,13 @@ title: Progress
   function renderCharts(data) {
     clearCharts();
 
-    // Sort log by date ascending for charts
     const sortedLog = [...data.log].sort((a, b) => a.date.localeCompare(b.date));
-
     const dates = sortedLog.map(entry => entry.date);
 
-    // Calculate max weight per session
     const maxWeights = sortedLog.map(entry => {
       return Math.max(...entry.sets.map(set => set.weight));
     });
 
-    // Calculate total volume per session (sum of weight * reps)
     const volumes = sortedLog.map(entry => {
       return entry.sets.reduce((sum, set) => sum + (set.weight * set.reps), 0);
     });
@@ -217,23 +144,14 @@ title: Progress
     const chartOptions = {
       responsive: true,
       plugins: {
-        legend: {
-          display: false
-        }
+        legend: { display: false }
       },
       scales: {
-        x: {
-          grid: {
-            display: false
-          }
-        },
-        y: {
-          beginAtZero: false
-        }
+        x: { grid: { display: false } },
+        y: { beginAtZero: false }
       }
     };
 
-    // Weight chart
     const weightCtx = document.getElementById('weightChart').getContext('2d');
     weightChart = new Chart(weightCtx, {
       type: 'line',
@@ -253,7 +171,6 @@ title: Progress
       options: chartOptions
     });
 
-    // Volume chart
     const volumeCtx = document.getElementById('volumeChart').getContext('2d');
     volumeChart = new Chart(volumeCtx, {
       type: 'line',
@@ -274,11 +191,9 @@ title: Progress
     });
   }
 
-  // Event listener for exercise selection
   document.getElementById('exercise-select').addEventListener('change', (e) => {
     loadExerciseData(e.target.value);
   });
 
-  // Initialize
   loadExerciseIndex();
 </script>

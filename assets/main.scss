@@ -454,3 +454,68 @@ hr {
         gap: 8px;
     }
 }
+
+// ---- Progress page ----
+.progress-selector {
+  margin-bottom: 2rem;
+}
+
+.progress-selector select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid $border;
+  border-radius: 4px;
+  min-width: 250px;
+  background: $card;
+}
+
+.progress-charts {
+  display: grid;
+  gap: 2rem;
+}
+
+.progress-chart {
+  background: $card;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.progress-chart h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: $text;
+}
+
+.progress-no-data {
+  text-align: center;
+  padding: 2rem;
+  color: $muted;
+}
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.progress-stat {
+  background: $bg;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.progress-stat__value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $text;
+}
+
+.progress-stat__label {
+  font-size: 0.85rem;
+  color: $muted;
+  margin-top: 0.25rem;
+}
