@@ -1,9 +1,8 @@
 ---
-layout: default
+layout: page
 title: Progress
+permalink: /progress/
 ---
-
-# Progress Tracker
 
 <div class="progress-selector">
   <label for="exercise-select">Select Exercise: </label>
