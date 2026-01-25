@@ -195,8 +195,15 @@ async function main() {
       break;
     }
 
-    const musclesInput = await question('Muscles worked (comma-separated, e.g., "Chest, Triceps"): ');
-    const muscles = musclesInput.split(',').map(m => m.trim()).filter(m => m);
+    // Check if exercise already exists
+    const exerciseSlug = slugify(exerciseName);
+    const existingData = loadExerciseData(exerciseSlug);
+
+    let muscles = [];
+    if (!existingData) {
+      const musclesInput = await question('Muscles worked (comma-separated, e.g., "Chest, Triceps"): ');
+      muscles = musclesInput.split(',').map(m => m.trim()).filter(m => m);
+    }
 
     await logExercise(exerciseName, muscles, workoutDate);
   }
