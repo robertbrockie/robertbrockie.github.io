@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Machine Shoulder Press",
+    "muscles": [
+      "Shoulders"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-24",
+      "sets": [
+        {
+          "weight": 120,
+          "reps": 15
+        },
+        {
+          "weight": 150,
+          "reps": 9
+        },
+        {
+          "weight": 180,
+          "reps": 4
+        }
+      ]
+    }
+  ]
+}

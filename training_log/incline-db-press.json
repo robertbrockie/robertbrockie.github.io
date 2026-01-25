@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Incline DB Press",
+    "muscles": [
+      "Chest"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-24",
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 12
+        },
+        {
+          "weight": 70,
+          "reps": 10
+        },
+        {
+          "weight": 80,
+          "reps": 7
+        },
+        {
+          "weight": 90,
+          "reps": 3
+        }
+      ]
+    }
+  ]
+}
