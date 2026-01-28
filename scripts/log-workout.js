@@ -46,7 +46,7 @@ function getAllExercisesForDate(date) {
     const filePath = path.join(TRAINING_LOG_DIR, file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-    const workoutOnDate = data.log.find(entry => entry.date === date);
+    const workoutOnDate = data?.log?.find(entry => entry.date === date);
     if (workoutOnDate) {
       exercises.push({
         title: data.metadata.title,

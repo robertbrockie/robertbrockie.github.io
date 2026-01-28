@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "wide-grip press",
+    "muscles": [
+      "Chest"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-28",
+      "sets": [
+        {
+          "weight": 70,
+          "reps": 14
+        },
+        {
+          "weight": 90,
+          "reps": 10
+        },
+        {
+          "weight": 100,
+          "reps": 5
+        }
+      ]
+    }
+  ]
+}
