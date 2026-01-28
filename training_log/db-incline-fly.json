@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "db incline fly",
+    "muscles": [
+      "Chest"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-16",
+      "sets": [
+        {
+          "weight": 25,
+          "reps": 12
+        },
+        {
+          "weight": 30,
+          "reps": 12
+        },
+        {
+          "weight": 35,
+          "reps": 11
+        },
+        {
+          "weight": 35,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

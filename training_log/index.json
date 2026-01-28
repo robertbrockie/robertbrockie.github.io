@@ -20,6 +20,14 @@
     "title": "Calf Raises"
   },
   {
+    "slug": "db-bench-press",
+    "title": "db bench press"
+  },
+  {
+    "slug": "db-incline-fly",
+    "title": "db incline fly"
+  },
+  {
     "slug": "db-incline-press",
     "title": "DB Incline Press"
   },
@@ -158,10 +166,6 @@
   {
     "slug": "standing-cable-press",
     "title": "Standing Cable Press"
-  },
-  {
-    "slug": "tbar-row",
-    "title": "tbar row"
   },
   {
     "slug": "tbar-rows",

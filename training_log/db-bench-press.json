@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "db bench press",
+    "muscles": [
+      "Chest"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-16",
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 12
+        },
+        {
+          "weight": 80,
+          "reps": 6
+        },
+        {
+          "weight": 80,
+          "reps": 4
+        }
+      ]
+    }
+  ]
+}
