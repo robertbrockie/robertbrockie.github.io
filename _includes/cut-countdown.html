@@ -7,6 +7,15 @@
 
 <script>
 (function() {
+    const banner = document.getElementById('cut-countdown');
+
+    // Check if banner was dismissed this session
+    if (sessionStorage.getItem('cutCountdownHidden') === 'true') {
+        if (banner) banner.style.display = 'none';
+        return;
+    }
+
+    // Calculate days until cut
     const cutDate = new Date('2026-05-01T00:00:00');
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -21,11 +30,12 @@
         daysEl.textContent = '0';
     }
 
+    // Handle close button
     const closeBtn = document.getElementById('cut-countdown-close');
-    const banner = document.getElementById('cut-countdown');
     if (closeBtn && banner) {
         closeBtn.addEventListener('click', function() {
             banner.style.display = 'none';
+            sessionStorage.setItem('cutCountdownHidden', 'true');
         });
     }
 })();
