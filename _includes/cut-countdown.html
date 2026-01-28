@@ -1,11 +1,8 @@
-<div class="cut-countdown">
+<div class="cut-countdown" id="cut-countdown">
     <span class="cut-countdown__text">
-        <span class="cut-countdown__emoji">✂️</span>
-        Cut Countdown
-        <strong class="cut-countdown__days" id="cut-days">--</strong>
-        Days
-        <span class="cut-countdown__emoji">✂️</span>
+        ✂️ Cut Countdown <strong class="cut-countdown__days" id="cut-days">--</strong> Days ✂️
     </span>
+    <button class="cut-countdown__close" id="cut-countdown-close" aria-label="Hide banner">&times;</button>
 </div>
 
 <script>
@@ -22,6 +19,14 @@
         daysEl.textContent = diffDays;
     } else if (daysEl) {
         daysEl.textContent = '0';
+    }
+
+    const closeBtn = document.getElementById('cut-countdown-close');
+    const banner = document.getElementById('cut-countdown');
+    if (closeBtn && banner) {
+        closeBtn.addEventListener('click', function() {
+            banner.style.display = 'none';
+        });
     }
 })();
 </script>
