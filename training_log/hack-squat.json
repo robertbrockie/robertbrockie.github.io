@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "title": "Hack Squat",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-15",
+      "sets": [
+        {
+          "weight": 245,
+          "reps": 12
+        },
+        {
+          "weight": 285,
+          "reps": 10
+        },
+        {
+          "weight": 335,
+          "reps": 7
+        },
+        {
+          "weight": 380,
+          "reps": 4
+        },
+        {
+          "weight": 335,
+          "reps": 4
+        }
+      ]
+    }
+  ]
+}

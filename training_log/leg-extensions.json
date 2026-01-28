@@ -28,6 +28,31 @@
       ]
     },
     {
+      "date": "2026-01-22",
+      "sets": [
+        {
+          "weight": 140,
+          "reps": 14
+        },
+        {
+          "weight": 160,
+          "reps": 12
+        },
+        {
+          "weight": 180,
+          "reps": 10
+        },
+        {
+          "weight": 220,
+          "reps": 8
+        },
+        {
+          "weight": 240,
+          "reps": 5
+        }
+      ]
+    },
+    {
       "date": "2026-01-18",
       "sets": [
         {
@@ -53,26 +78,22 @@
       ]
     },
     {
-      "date": "2026-01-22",
+      "date": "2026-01-15",
       "sets": [
         {
-          "weight": 140,
+          "weight": 150,
           "reps": 14
         },
         {
-          "weight": 160,
-          "reps": 12
-        },
-        {
           "weight": 180,
-          "reps": 10
+          "reps": 11
         },
         {
-          "weight": 220,
+          "weight": 200,
           "reps": 8
         },
         {
-          "weight": 240,
+          "weight": 220,
           "reps": 5
         }
       ]
