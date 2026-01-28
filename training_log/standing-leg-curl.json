@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Standing Leg Curl",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-28",
+      "sets": [
+        {
+          "weight": 35,
+          "reps": 12
+        },
+        {
+          "weight": 45,
+          "reps": 10
+        },
+        {
+          "weight": 55,
+          "reps": 7
+        }
+      ]
+    }
+  ]
+}

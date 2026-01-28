@@ -21,11 +21,11 @@
   },
   {
     "slug": "db-bench-press",
-    "title": "db bench press"
+    "title": "DB Bench Press"
   },
   {
     "slug": "db-incline-fly",
-    "title": "db incline fly"
+    "title": "DB Incline Fly"
   },
   {
     "slug": "db-incline-press",
@@ -77,7 +77,7 @@
   },
   {
     "slug": "incline-smith-press",
-    "title": "incline smith press"
+    "title": "Incline Smith Press"
   },
   {
     "slug": "leg-curls-laying",
@@ -153,7 +153,7 @@
   },
   {
     "slug": "shrugs",
-    "title": "shrugs"
+    "title": "Shrugs"
   },
   {
     "slug": "skull-crushers",
@@ -172,6 +172,10 @@
     "title": "Standing Cable Press"
   },
   {
+    "slug": "standing-leg-curl",
+    "title": "Standing Leg Curl"
+  },
+  {
     "slug": "tbar-rows",
     "title": "Tbar Rows"
   },
@@ -185,7 +189,7 @@
   },
   {
     "slug": "wide-grip-press",
-    "title": "wide-grip press"
+    "title": "Wide-Grip Press"
   },
   {
     "slug": "wrist-curls",
