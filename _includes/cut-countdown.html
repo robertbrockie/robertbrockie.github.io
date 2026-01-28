@@ -1,0 +1,27 @@
+<div class="cut-countdown">
+    <span class="cut-countdown__text">
+        <span class="cut-countdown__emoji">✂️</span>
+        Cut Countdown
+        <strong class="cut-countdown__days" id="cut-days">--</strong>
+        Days
+        <span class="cut-countdown__emoji">✂️</span>
+    </span>
+</div>
+
+<script>
+(function() {
+    const cutDate = new Date('2026-05-01T00:00:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const diffTime = cutDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    const daysEl = document.getElementById('cut-days');
+    if (daysEl && diffDays > 0) {
+        daysEl.textContent = diffDays;
+    } else if (daysEl) {
+        daysEl.textContent = '0';
+    }
+})();
+</script>
