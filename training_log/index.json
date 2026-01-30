@@ -104,8 +104,16 @@
     "title": "Machine Shoulder Press"
   },
   {
+    "slug": "machine-tricep-extension",
+    "title": "Machine Tricep Extension"
+  },
+  {
     "slug": "machine-tricep-press",
     "title": "Machine Tricep Press"
+  },
+  {
+    "slug": "overhead-cable-tricep-extension",
+    "title": "Overhead Cable Tricep Extension"
   },
   {
     "slug": "overhead-tricep-extension",

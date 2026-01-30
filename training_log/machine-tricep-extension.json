@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Machine Tricep Extension",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-29",
+      "sets": [
+        {
+          "weight": 80,
+          "reps": 15
+        },
+        {
+          "weight": 100,
+          "reps": 12
+        },
+        {
+          "weight": 120,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

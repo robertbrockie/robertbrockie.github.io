@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Overhead Cable Tricep Extension",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-29",
+      "sets": [
+        {
+          "weight": 80,
+          "reps": 15
+        },
+        {
+          "weight": 100,
+          "reps": 11
+        },
+        {
+          "weight": 110,
+          "reps": 8
+        },
+        {
+          "weight": 90,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}
