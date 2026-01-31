@@ -12,8 +12,16 @@
     "title": "Cable Curls"
   },
   {
+    "slug": "cable-lat-raises",
+    "title": "Cable Lat Raises"
+  },
+  {
     "slug": "cable-press",
     "title": "Cable Press"
+  },
+  {
+    "slug": "cable-press-down-straight-bar",
+    "title": "Cable Press Down (Straight Bar)"
   },
   {
     "slug": "cable-row-close-grip",
@@ -42,6 +50,10 @@
   {
     "slug": "db-preacher-curls",
     "title": "DB Preacher Curls"
+  },
+  {
+    "slug": "db-shoulder-press",
+    "title": "DB Shoulder Press"
   },
   {
     "slug": "db-tricep-extension",
@@ -132,6 +144,10 @@
     "title": "Pec Deck"
   },
   {
+    "slug": "poliquin-raises",
+    "title": "Poliquin Raises"
+  },
+  {
     "slug": "preacher-curls",
     "title": "Preacher Curls"
   },
@@ -142,6 +158,10 @@
   {
     "slug": "pullups",
     "title": "Pullups"
+  },
+  {
+    "slug": "rear-delt-fly",
+    "title": "Rear Delt Fly"
   },
   {
     "slug": "reverse-pec-deck",

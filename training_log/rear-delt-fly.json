@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Rear Delt Fly",
+    "muscles": [
+      "Shoulders"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-14",
+      "sets": [
+        {
+          "weight": 130,
+          "reps": 8
+        },
+        {
+          "weight": 130,
+          "reps": 8
+        },
+        {
+          "weight": 115,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Cable Lat Raises",
+    "muscles": [
+      "Shoulders"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-14",
+      "sets": [
+        {
+          "weight": 25,
+          "reps": 12
+        },
+        {
+          "weight": 30,
+          "reps": 10
+        },
+        {
+          "weight": 30,
+          "reps": 10
+        },
+        {
+          "weight": 20,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}

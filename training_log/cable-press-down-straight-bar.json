@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Cable Press Down (Straight Bar)",
+    "muscles": [
+      "Tricep"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-14",
+      "sets": [
+        {
+          "weight": 100,
+          "reps": 16
+        },
+        {
+          "weight": 140,
+          "reps": 10
+        },
+        {
+          "weight": 150,
+          "reps": 7
+        }
+      ]
+    }
+  ]
+}
