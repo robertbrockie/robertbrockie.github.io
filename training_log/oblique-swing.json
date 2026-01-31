@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Oblique Swing",
+    "muscles": [
+      "Abs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-05",
+      "sets": [
+        {
+          "weight": 25,
+          "reps": 12
+        },
+        {
+          "weight": 25,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}

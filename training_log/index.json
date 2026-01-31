@@ -140,8 +140,16 @@
     "title": "Machine Tricep Press"
   },
   {
+    "slug": "oblique-swing",
+    "title": "Oblique Swing"
+  },
+  {
     "slug": "overhead-cable-tricep-extension",
     "title": "Overhead Cable Tricep Extension"
+  },
+  {
+    "slug": "overhead-press",
+    "title": "Overhead Press"
   },
   {
     "slug": "overhead-tricep-extension",
