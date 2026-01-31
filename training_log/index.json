@@ -1,5 +1,9 @@
 [
   {
+    "slug": "bentover-reverse-db-flys",
+    "title": "Bentover Reverse DB Flys"
+  },
+  {
     "slug": "bentover-rows",
     "title": "Bentover Rows"
   },
@@ -92,6 +96,10 @@
     "title": "Leg Extensions"
   },
   {
+    "slug": "low-rows",
+    "title": "Low Rows"
+  },
+  {
     "slug": "machine-preacher-curls",
     "title": "Machine Preacher Curls"
   },
@@ -126,6 +134,10 @@
   {
     "slug": "preacher-curls",
     "title": "Preacher Curls"
+  },
+  {
+    "slug": "pulldown",
+    "title": "Pulldown"
   },
   {
     "slug": "pullups",

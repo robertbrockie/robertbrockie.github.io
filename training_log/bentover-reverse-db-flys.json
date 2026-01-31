@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "title": "Bentover Reverse DB Flys",
+    "muscles": [
+      "Shoulders",
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-30",
+      "sets": [
+        {
+          "weight": 30,
+          "reps": 10
+        },
+        {
+          "weight": 30,
+          "reps": 10
+        },
+        {
+          "weight": 30,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

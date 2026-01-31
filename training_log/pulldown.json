@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Pulldown",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-30",
+      "sets": [
+        {
+          "weight": 90,
+          "reps": 12
+        },
+        {
+          "weight": 100,
+          "reps": 9
+        },
+        {
+          "weight": 105,
+          "reps": 7
+        },
+        {
+          "weight": 105,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}
