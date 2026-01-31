@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Leg Press",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-01-07",
+      "sets": [
+        {
+          "weight": 360,
+          "reps": 12
+        },
+        {
+          "weight": 480,
+          "reps": 8
+        },
+        {
+          "weight": 570,
+          "reps": 5
+        },
+        {
+          "weight": 630,
+          "reps": 3
+        }
+      ]
+    }
+  ]
+}
