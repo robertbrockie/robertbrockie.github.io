@@ -6,9 +6,36 @@ const readline = require('readline');
 
 const TRAINING_LOG_DIR = path.join(__dirname, '../training_log');
 
+// Cache of exercise titles for autocomplete
+let exerciseTitles = [];
+
+function loadExerciseTitles() {
+  exerciseTitles = [];
+  if (!fs.existsSync(TRAINING_LOG_DIR)) return;
+
+  const files = fs.readdirSync(TRAINING_LOG_DIR);
+  for (const file of files) {
+    if (!file.endsWith('.json') || file === 'index.json') continue;
+    const filePath = path.join(TRAINING_LOG_DIR, file);
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (data.metadata?.title) {
+      exerciseTitles.push(data.metadata.title);
+    }
+  }
+  exerciseTitles.sort((a, b) => a.localeCompare(b));
+}
+
+function exerciseCompleter(line) {
+  const hits = exerciseTitles.filter(title =>
+    title.toLowerCase().startsWith(line.toLowerCase())
+  );
+  return [hits.length ? hits : exerciseTitles, line];
+}
+
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
+  completer: exerciseCompleter
 });
 
 function question(prompt) {
@@ -203,6 +230,9 @@ async function main() {
   if (!fs.existsSync(TRAINING_LOG_DIR)) {
     fs.mkdirSync(TRAINING_LOG_DIR, { recursive: true });
   }
+
+  // Load exercise titles for tab autocomplete
+  loadExerciseTitles();
 
   const todayDate = getTodayDate();
   const dateInput = await question(`Workout date (YYYY-MM-DD, default: ${todayDate}): `);
