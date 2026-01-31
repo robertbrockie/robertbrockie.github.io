@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Seated pulldown mid-grip",
+    "title": "Seated Pulldown Mid-Grip",
     "muscles": [
       "Back"
     ]
@@ -20,6 +20,23 @@
         {
           "weight": 160,
           "reps": 6
+        }
+      ]
+    },
+    {
+      "date": "2026-01-03",
+      "sets": [
+        {
+          "weight": 155,
+          "reps": 8
+        },
+        {
+          "weight": 150,
+          "reps": 8
+        },
+        {
+          "weight": 155,
+          "reps": 8
         }
       ]
     }
