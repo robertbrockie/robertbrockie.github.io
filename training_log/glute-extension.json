@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Glute Extension",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-01",
+      "sets": [
+        {
+          "weight": 0,
+          "reps": 14
+        },
+        {
+          "weight": 15,
+          "reps": 16
+        },
+        {
+          "weight": 20,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}

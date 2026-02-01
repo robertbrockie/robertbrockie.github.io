@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Platz Stance Leg Press",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-01",
+      "sets": [
+        {
+          "weight": 270,
+          "reps": 15
+        },
+        {
+          "weight": 270,
+          "reps": 16
+        },
+        {
+          "weight": 300,
+          "reps": 14
+        }
+      ]
+    }
+  ]
+}

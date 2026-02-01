@@ -80,6 +80,10 @@
     "title": "Front Squat"
   },
   {
+    "slug": "glute-extension",
+    "title": "Glute Extension"
+  },
+  {
     "slug": "hack-squat",
     "title": "Hack Squat"
   },
@@ -162,6 +166,10 @@
   {
     "slug": "pec-deck",
     "title": "Pec Deck"
+  },
+  {
+    "slug": "platz-stance-leg-press",
+    "title": "Platz Stance Leg Press"
   },
   {
     "slug": "poliquin-raises",
