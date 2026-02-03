@@ -13,7 +13,7 @@ If nothing else, this will serve as some form of accountability — and hopefull
 
 ## The Goal
 
-🏆 [IDFA](https://www.idfa.ca/) Men’s Bodybuilding Competition — **July 19, 2026**
+🏆 [WWA (formerly IDFA)](https://www.workoutwarriorathletics.com/wwa-physique-sports-event-dates) WWA Physique Sports — **July 19, 2026**
 
 If you’re curious how a prep is managed over time, this is my record. Comments are enabled, so feel free to tell me what you like — or don’t.
 
