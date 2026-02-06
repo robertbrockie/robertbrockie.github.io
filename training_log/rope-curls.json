@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Rope Curls",
+    "muscles": [
+      "Biceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-06",
+      "sets": [
+        {
+          "weight": 100,
+          "reps": 9
+        },
+        {
+          "weight": 90,
+          "reps": 10
+        },
+        {
+          "weight": 90,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
