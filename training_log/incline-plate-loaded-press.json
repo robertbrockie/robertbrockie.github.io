@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "title": "Incline Plate Loaded Press",
+    "muscles": [
+      "Chest"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-09",
+      "sets": [
+        {
+          "weight": 115,
+          "reps": 7
+        },
+        {
+          "weight": 115,
+          "reps": 4
+        },
+        {
+          "weight": 100,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}
