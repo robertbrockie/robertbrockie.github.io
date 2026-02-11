@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Single Leg Press",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-11",
+      "sets": [
+        {
+          "weight": 200,
+          "reps": 8
+        },
+        {
+          "weight": 200,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}
