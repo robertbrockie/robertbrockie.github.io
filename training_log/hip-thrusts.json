@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Hip Thrusts",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-14",
+      "sets": [
+        {
+          "weight": 275,
+          "reps": 11
+        },
+        {
+          "weight": 275,
+          "reps": 9
+        }
+      ]
+    }
+  ]
+}

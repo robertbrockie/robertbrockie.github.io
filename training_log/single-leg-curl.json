@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Single Leg Curl",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-14",
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 6
+        },
+        {
+          "weight": 50,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}

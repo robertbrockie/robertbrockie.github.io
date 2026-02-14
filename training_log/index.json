@@ -92,6 +92,10 @@
     "title": "Hip Abductor"
   },
   {
+    "slug": "hip-thrusts",
+    "title": "Hip Thrusts"
+  },
+  {
     "slug": "incline-curls",
     "title": "Incline Curls"
   },
@@ -238,6 +242,10 @@
   {
     "slug": "shrugs",
     "title": "Shrugs"
+  },
+  {
+    "slug": "single-leg-curl",
+    "title": "Single Leg Curl"
   },
   {
     "slug": "single-leg-press",
