@@ -1,11 +1,24 @@
 {
   "metadata": {
-    "title": "Tbar Rows",
+    "title": "Tbar Rows - Chest Supported",
     "muscles": [
       "Back"
     ]
   },
   "log": [
+    {
+      "date": "2026-02-24",
+      "sets": [
+        {
+          "weight": 115,
+          "reps": 10
+        },
+        {
+          "weight": 115,
+          "reps": 8
+        }
+      ]
+    },
     {
       "date": "2026-02-20",
       "sets": [
