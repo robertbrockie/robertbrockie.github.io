@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Chest Supported Cable Rows",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-02-27",
+      "sets": [
+        {
+          "weight": 120,
+          "reps": 12
+        },
+        {
+          "weight": 120,
+          "reps": 9
+        }
+      ]
+    }
+  ]
+}
