@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Cable Crossover",
+    "muscles": [
+      "Chest"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-03-01",
+      "sets": [
+        {
+          "weight": 50,
+          "reps": 16
+        },
+        {
+          "weight": 60,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
