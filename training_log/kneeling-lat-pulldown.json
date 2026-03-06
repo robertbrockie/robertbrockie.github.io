@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Kneeling Lat Pulldown",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-03-05",
+      "sets": [
+        {
+          "weight": 100,
+          "reps": 9
+        },
+        {
+          "weight": 100,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}
