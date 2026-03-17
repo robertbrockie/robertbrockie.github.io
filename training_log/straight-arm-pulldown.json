@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Straight Arm Pulldown",
+    "muscles": [
+      "Back",
+      "Lats"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-03-17",
+      "sets": [
+        {
+          "weight": 100,
+          "reps": 10
+        },
+        {
+          "weight": 100,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
