@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Hip Thrusts (Front loaded plates)",
+    "muscles": [
+      "Leg",
+      "Glutes"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-03-20",
+      "sets": [
+        {
+          "weight": 115,
+          "reps": 12
+        },
+        {
+          "weight": 115,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
