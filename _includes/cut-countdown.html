@@ -1,29 +1,29 @@
-<div class="cut-countdown" id="cut-countdown">
-    <span class="cut-countdown__text">
-        ✂️ Cut Countdown <strong class="cut-countdown__days" id="cut-days">--</strong> Days ✂️
+<div class="stage-countdown" id="stage-countdown">
+    <span class="stage-countdown__text">
+        🏆 Stage Countdown: <strong class="stage-countdown__days" id="stage-days">--</strong> Days Out 🏆
     </span>
-    <button class="cut-countdown__close" id="cut-countdown-close" aria-label="Hide banner">&times;</button>
+    <button class="stage-countdown__close" id="stage-countdown-close" aria-label="Hide banner">&times;</button>
 </div>
 
 <script>
     (function () {
-        const banner = document.getElementById('cut-countdown');
+        const banner = document.getElementById('stage-countdown');
 
         // Check if banner was dismissed this session
-        if (sessionStorage.getItem('cutCountdownHidden') === 'true') {
+        if (sessionStorage.getItem('stageCountdownHidden') === 'true') {
             if (banner) banner.style.display = 'none';
             return;
         }
 
-        // Calculate days until cut
-        const cutDate = new Date('2026-04-01T00:00:00');
+        // Calculate days until show
+        const showDate = new Date(2026, 6, 19); // July 19, 2026 (local time)
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        const diffTime = cutDate - today;
+        const diffTime = showDate - today;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-        const daysEl = document.getElementById('cut-days');
+        const daysEl = document.getElementById('stage-days');
         if (daysEl && diffDays > 0) {
             daysEl.textContent = diffDays;
         } else if (daysEl) {
@@ -31,11 +31,11 @@
         }
 
         // Handle close button
-        const closeBtn = document.getElementById('cut-countdown-close');
+        const closeBtn = document.getElementById('stage-countdown-close');
         if (closeBtn && banner) {
             closeBtn.addEventListener('click', function () {
                 banner.style.display = 'none';
-                sessionStorage.setItem('cutCountdownHidden', 'true');
+                sessionStorage.setItem('stageCountdownHidden', 'true');
             });
         }
     })();

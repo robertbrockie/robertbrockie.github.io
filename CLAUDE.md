@@ -2,11 +2,11 @@
 
 ## Athlete Profile
 - **Height:** 5'7"
-- **Current weight:** ~180 lbs (as of March 2026)
-- **Goal:** Lean bulk to ~185 lbs, then cut for stage
+- **Current weight:** ~181 lbs (as of April 2026)
+- **Goal:** Cut to ~160 lbs for stage
 - **Show:** July 19, 2026
-- **Cut start:** May 1, 2026 (~11 weeks out)
-- **Current nutrition:** ~2600 cal/day — 190g protein, 65-70g fat, 339g carbs
+- **Cut start:** April 1, 2026 (~15.5 weeks out)
+- **Current nutrition:** ~2100 cal/day — 195g protein, 55g fat, 230g carbs (cutting phase, week 1–4)
 - **Training split:** Push (Mon) / Pull (Tue) / Legs quad-focus (Wed) / Rest (Thu) / Upper (Fri) / Legs hamstring-focus (Sat) / Rest (Sun)
 
 ## Project Overview
@@ -55,4 +55,4 @@ node scripts/log-workout.js  # log a workout session
 - `progress.md` uses `layout: page` and `permalink: /progress/` — required for styles to apply
 - Never use `toISOString()` for date handling (UTC shift bug) — use local date methods instead
 - `_exercises/` collection pages use `layout: exercise`
-- The cut countdown banner (`_includes/cut-countdown.html`) uses sessionStorage to persist dismissal
+- The stage countdown banner (`_includes/cut-countdown.html`) uses sessionStorage to persist dismissal (key: `stageCountdownHidden`)

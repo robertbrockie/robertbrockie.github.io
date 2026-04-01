@@ -54,8 +54,8 @@ hr {
     max-width: 900px;
 }
 
-// ---- Cut Countdown Banner ----
-.cut-countdown {
+// ---- Stage Countdown Banner ----
+.stage-countdown {
     position: sticky;
     top: 0;
     z-index: 100;
@@ -72,11 +72,11 @@ hr {
     align-items: center;
 }
 
-.cut-countdown__text {
+.stage-countdown__text {
     display: inline;
 }
 
-.cut-countdown__days {
+.stage-countdown__days {
     font-size: 15px;
     font-weight: 900;
     color: darken($accent, 15%);
@@ -86,7 +86,7 @@ hr {
     margin: 0 4px;
 }
 
-.cut-countdown__close {
+.stage-countdown__close {
     position: absolute;
     right: 12px;
     background: none;
