@@ -15,7 +15,7 @@ function loadExerciseTitles() {
 
   const files = fs.readdirSync(TRAINING_LOG_DIR);
   for (const file of files) {
-    if (!file.endsWith('.json') || file === 'index.json') continue;
+    if (!file.endsWith('.json') || file === 'index.json' || file === 'body-weight.json') continue;
     const filePath = path.join(TRAINING_LOG_DIR, file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     if (data.metadata?.title) {
@@ -71,7 +71,7 @@ function getAllExercisesForDate(date) {
   const files = fs.readdirSync(TRAINING_LOG_DIR);
 
   for (const file of files) {
-    if (!file.endsWith('.json')) continue;
+    if (!file.endsWith('.json') || file === 'index.json' || file === 'body-weight.json') continue;
 
     const filePath = path.join(TRAINING_LOG_DIR, file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -128,7 +128,7 @@ function generateExerciseIndex() {
   const files = fs.readdirSync(TRAINING_LOG_DIR);
 
   for (const file of files) {
-    if (!file.endsWith('.json') || file === 'index.json') continue;
+    if (!file.endsWith('.json') || file === 'index.json' || file === 'body-weight.json') continue;
 
     const filePath = path.join(TRAINING_LOG_DIR, file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -237,6 +237,31 @@ async function main() {
   const todayDate = getTodayDate();
   const dateInput = await question(`Workout date (YYYY-MM-DD, default: ${todayDate}): `);
   const workoutDate = dateInput.trim() === '' ? todayDate : dateInput;
+
+  const weightInput = await question('Morning body weight (lbs, optional): ');
+  if (weightInput.trim() !== '') {
+    const weight = parseFloat(weightInput);
+    if (!isNaN(weight)) {
+      const weightLogPath = path.join(TRAINING_LOG_DIR, 'body-weight.json');
+      let bodyWeightData = [];
+      if (fs.existsSync(weightLogPath)) {
+        bodyWeightData = JSON.parse(fs.readFileSync(weightLogPath, 'utf8'));
+      }
+      
+      const existingEntryIndex = bodyWeightData.findIndex(entry => entry.date === workoutDate);
+      if (existingEntryIndex >= 0) {
+        bodyWeightData[existingEntryIndex].weight = weight;
+      } else {
+        bodyWeightData.push({ date: workoutDate, weight });
+      }
+      
+      bodyWeightData.sort((a, b) => b.date.localeCompare(a.date));
+      fs.writeFileSync(weightLogPath, JSON.stringify(bodyWeightData, null, 2));
+      console.log(`✓ Logged body weight: ${weight} lbs for ${workoutDate}\n`);
+    } else {
+      console.log('! Invalid weight input, skipping.\n');
+    }
+  }
 
   // Display any existing workouts for this date
   displayWorkoutSummary(workoutDate);
