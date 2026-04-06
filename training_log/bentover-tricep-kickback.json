@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Bentover Tricep Kickback",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-04-06",
+      "sets": [
+        {
+          "weight": 20,
+          "reps": 14
+        },
+        {
+          "weight": 20,
+          "reps": 15
+        }
+      ]
+    }
+  ]
+}
