@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Deadlift",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-04-10",
+      "sets": [
+        {
+          "weight": 315,
+          "reps": 7
+        },
+        {
+          "weight": 315,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}
