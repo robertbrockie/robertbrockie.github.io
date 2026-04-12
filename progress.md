@@ -4,6 +4,11 @@ title: Progress
 permalink: /progress/
 ---
 
+<div class="progress-chart" style="margin-bottom: 2rem;">
+  <h3>Body Weight Over Time</h3>
+  <canvas id="bodyWeightChart"></canvas>
+</div>
+
 <div class="progress-selector">
   <label for="exercise-select">Select Exercise: </label>
   <select id="exercise-select">
@@ -51,6 +56,7 @@ permalink: /progress/
   const BASE_URL = '/training_log';
   let weightChart = null;
   let volumeChart = null;
+  let bodyWeightChart = null;
 
   async function loadExerciseIndex() {
     try {
@@ -194,5 +200,47 @@ permalink: /progress/
     loadExerciseData(e.target.value);
   });
 
+  async function loadBodyWeightData() {
+    try {
+      const response = await fetch(`${BASE_URL}/body-weight.json`);
+      const data = await response.json();
+      
+      const sortedData = [...data].sort((a, b) => a.date.localeCompare(b.date));
+      const dates = sortedData.map(entry => entry.date);
+      const weights = sortedData.map(entry => entry.weight);
+      
+      const ctx = document.getElementById('bodyWeightChart').getContext('2d');
+      bodyWeightChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [{
+            label: 'Body Weight (lbs)',
+            data: weights,
+            borderColor: '#FF9800',
+            backgroundColor: 'rgba(255, 152, 0, 0.1)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 7
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: false }
+          }
+        }
+      });
+    } catch (error) {
+      console.error('Failed to load body weight data:', error);
+    }
+  }
+
   loadExerciseIndex();
+  loadBodyWeightData();
 </script>
