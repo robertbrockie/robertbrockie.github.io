@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Tbar Rows",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-04-19",
+      "sets": [
+        {
+          "weight": 90,
+          "reps": 12
+        },
+        {
+          "weight": 115,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
