@@ -2,11 +2,13 @@
 
 ## Athlete Profile
 - **Height:** 5'7"
-- **Current weight:** ~181 lbs (as of April 2026)
+- **Current weight:** ~171.2 lbs (as of May 3, 2026)
 - **Goal:** Cut to ~160 lbs for stage
 - **Show:** July 19, 2026
 - **Cut start:** April 1, 2026 (~15.5 weeks out)
-- **Current nutrition:** ~2100 cal/day — 195g protein, 55g fat, 230g carbs (cutting phase, week 1–4)
+- **Current nutrition (Phase 2, Weeks 5-8):** ~1950 cal/day — 200g protein, 50g fat, 175g carbs
+- **Historical nutrition:**
+  - **Phase 1 (Weeks 1-4):** ~2100 cal/day — 195g protein, 55g fat, 230g carbs (181 lbs -> 171.2 lbs)
 - **Training split:** Push (Mon) / Pull (Tue) / Legs quad-focus (Wed) / Rest (Thu) / Upper (Fri) / Legs hamstring-focus (Sat) / Rest (Sun)
 
 ## Project Overview
