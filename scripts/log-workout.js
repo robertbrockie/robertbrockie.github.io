@@ -80,10 +80,13 @@ function getAllExercisesForDate(date) {
     if (workoutOnDate) {
       exercises.push({
         title: data.metadata.title,
-        sets: workoutOnDate.sets
+        sets: workoutOnDate.sets,
+        timestamp: workoutOnDate.timestamp || 0
       });
     }
   }
+
+  exercises.sort((a, b) => a.timestamp - b.timestamp);
 
   return exercises;
 }
@@ -212,11 +215,16 @@ async function logExercise(exerciseName, muscles, workoutDate) {
   if (sets.length > 0) {
     exerciseData.log.push({
       date: workoutDate,
+      timestamp: Date.now(),
       sets: sets
     });
 
     // Sort log by date in descending order (most recent first)
-    exerciseData.log.sort((a, b) => b.date.localeCompare(a.date));
+    exerciseData.log.sort((a, b) => {
+      const dateCompare = b.date.localeCompare(a.date);
+      if (dateCompare !== 0) return dateCompare;
+      return (b.timestamp || 0) - (a.timestamp || 0);
+    });
 
     saveExerciseData(exerciseSlug, exerciseData);
   } else {
