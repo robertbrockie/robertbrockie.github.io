@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Lat Prayers (Chest Supported)",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-05-16",
+      "timestamp": 1778948079376,
+      "sets": [
+        {
+          "weight": 105,
+          "reps": 12
+        },
+        {
+          "weight": 105,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
