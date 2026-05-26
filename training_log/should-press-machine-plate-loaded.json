@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Should Press Machine (Plate Loaded)",
+    "muscles": [
+      "Shoulders"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-05-26",
+      "timestamp": 1779835617128,
+      "sets": [
+        {
+          "weight": 90,
+          "reps": 9
+        },
+        {
+          "weight": 90,
+          "reps": 7
+        }
+      ]
+    }
+  ]
+}
