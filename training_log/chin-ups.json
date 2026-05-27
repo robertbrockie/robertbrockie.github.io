@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Chin-ups",
+    "muscles": [
+      "Biceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-05-27",
+      "timestamp": 1779923474460,
+      "sets": [
+        {
+          "weight": 0,
+          "reps": 8
+        },
+        {
+          "weight": 0,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}
