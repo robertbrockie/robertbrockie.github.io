@@ -7,6 +7,24 @@
   },
   "log": [
     {
+      "date": "2026-06-20",
+      "timestamp": 1781966044170,
+      "sets": [
+        {
+          "weight": 25,
+          "reps": 6
+        },
+        {
+          "weight": 25,
+          "reps": 6
+        },
+        {
+          "weight": 0,
+          "reps": 8
+        }
+      ]
+    },
+    {
       "date": "2026-06-17",
       "timestamp": 1781817598033,
       "sets": [
