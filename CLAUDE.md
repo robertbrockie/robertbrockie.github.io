@@ -58,4 +58,3 @@ node scripts/log-workout.js  # log a workout session
 - `progress.md` uses `layout: page` and `permalink: /progress/` — required for styles to apply
 - Never use `toISOString()` for date handling (UTC shift bug) — use local date methods instead
 - `_exercises/` collection pages use `layout: exercise`
-- The stage countdown banner (`_includes/cut-countdown.html`) uses sessionStorage to persist dismissal (key: `stageCountdownHidden`)
