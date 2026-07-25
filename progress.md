@@ -57,6 +57,20 @@ permalink: /progress/
   let weightChart = null;
   let volumeChart = null;
   let bodyWeightChart = null;
+  let bodyWeightData = [];
+
+  function getBodyWeightForDate(dateStr) {
+    if (!bodyWeightData || bodyWeightData.length === 0) return null;
+    let lastWeight = bodyWeightData[0].weight;
+    for (const entry of bodyWeightData) {
+      if (entry.date <= dateStr) {
+        lastWeight = entry.weight;
+      } else {
+        break;
+      }
+    }
+    return lastWeight;
+  }
 
   async function loadExerciseIndex() {
     try {
@@ -146,6 +160,8 @@ permalink: /progress/
       return entry.sets.reduce((sum, set) => sum + (set.weight * set.reps), 0);
     });
 
+    const exerciseBodyWeights = dates.map(date => getBodyWeightForDate(date));
+
     const chartOptions = {
       responsive: true,
       plugins: {
@@ -162,18 +178,45 @@ permalink: /progress/
       type: 'line',
       data: {
         labels: dates,
-        datasets: [{
-          label: 'Max Weight (lbs)',
-          data: maxWeights,
-          borderColor: '#4CAF50',
-          backgroundColor: 'rgba(76, 175, 80, 0.1)',
-          fill: true,
-          tension: 0.3,
-          pointRadius: 5,
-          pointHoverRadius: 8
-        }]
+        datasets: [
+          {
+            label: 'Body Weight (lbs)',
+            data: exerciseBodyWeights,
+            borderColor: 'rgba(255, 152, 0, 0.4)',
+            borderDash: [5, 5],
+            backgroundColor: 'transparent',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            borderWidth: 2
+          },
+          {
+            label: 'Max Weight (lbs)',
+            data: maxWeights,
+            borderColor: '#4CAF50',
+            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 5,
+            pointHoverRadius: 8
+          }
+        ]
       },
-      options: chartOptions
+      options: {
+        ...chartOptions,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              usePointStyle: true,
+              boxWidth: 15,
+              boxHeight: 15
+            }
+          }
+        }
+      }
     });
 
     const volumeCtx = document.getElementById('volumeChart').getContext('2d');
@@ -205,9 +248,9 @@ permalink: /progress/
       const response = await fetch(`${BASE_URL}/body-weight.json`);
       const data = await response.json();
       
-      const sortedData = [...data].sort((a, b) => a.date.localeCompare(b.date));
-      const dates = sortedData.map(entry => entry.date);
-      const weights = sortedData.map(entry => entry.weight);
+      bodyWeightData = [...data].sort((a, b) => a.date.localeCompare(b.date));
+      const dates = bodyWeightData.map(entry => entry.date);
+      const weights = bodyWeightData.map(entry => entry.weight);
       
       const ctx = document.getElementById('bodyWeightChart').getContext('2d');
       bodyWeightChart = new Chart(ctx, {
