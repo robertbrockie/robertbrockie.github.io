@@ -4,17 +4,32 @@ const path = require('path');
 const postsDir = path.join(__dirname, '../_posts');
 const logFile = path.join(__dirname, '../training_log/body-weight.json');
 
+function getMarkdownFiles(dir) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  for (const file of list) {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getMarkdownFiles(fullPath));
+    } else if (file.endsWith('.md')) {
+      results.push(fullPath);
+    }
+  }
+  return results;
+}
+
 function backfillBodyWeights() {
-  const files = fs.readdirSync(postsDir);
+  const files = getMarkdownFiles(postsDir);
   const bodyWeights = {}; // date -> weight
 
-  for (const file of files) {
-    if (!file.endsWith('.md')) continue;
+  for (const filePath of files) {
+    const file = path.basename(filePath);
     const match = file.match(/^(\d{4}-\d{2}-\d{2})-/);
     if (!match) continue;
     const date = match[1];
 
-    const content = fs.readFileSync(path.join(postsDir, file), 'utf8');
+    const content = fs.readFileSync(filePath, 'utf8');
     
     const lines = content.split('\n');
     let inNotesSection = false;
