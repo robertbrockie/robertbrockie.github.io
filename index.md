@@ -67,18 +67,26 @@ title: Project 168
 
 <h2 class="project-section-title">Project 168 Journal Logs</h2>
 
-{% assign project_posts = site.posts | where_exp: "item", "item.category != 'first-show'" %}
-{% if project_posts.size > 0 %}
+{% assign has_project_posts = false %}
+{% for post in site.posts %}
+  {% unless post.categories contains 'first-show' %}
+    {% assign has_project_posts = true %}
+  {% endunless %}
+{% endfor %}
+
+{% if has_project_posts %}
   <ul class="post-list">
-    {% for post in project_posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %d, %Y" }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-      </li>
+    {% for post in site.posts %}
+      {% unless post.categories contains 'first-show' %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%b %d, %Y" }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+        </li>
+      {% endunless %}
     {% endfor %}
   </ul>
 {% else %}
