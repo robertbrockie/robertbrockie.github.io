@@ -18,6 +18,12 @@ defaults:
       layout: post
 
   - scope:
+      path: "_posts/first-show"
+      type: posts
+    values:
+      categories: ["first-show"]
+
+  - scope:
       path: ""
       type: exercises
     values:
