@@ -22,6 +22,7 @@ Instead of focusing purely on scale weight, progress will be judged on visual st
   * ✅ Wider back
   * ✅ Thicker upper back
   * ✅ More hamstring detail
+  
 * **Maintain:**
   * ✅ Round delts
   * ✅ Tight waist
@@ -32,12 +33,14 @@ Instead of focusing purely on scale weight, progress will be judged on visual st
 ## Performance Goals
 These are the milestones I'll be chasing over the next 6–12 months:
 
-* [ ] **20 strict pull-ups**
-* [ ] **405 lbs Hack Squat**
-* [ ] **405 lbs Trap Bar Deadlift** (for reps)
-* [ ] **+45 lbs Weighted Pull-ups** (for reps)
-* [ ] **225 lbs Incline Smith Press**
-* [ ] **500 lbs Calf Raise**
+* **20 strict pull-ups**
+* **135 lbs x 8 Weighted Dips**
+* **405 lbs x 8 Hack Squat**
+* **405 lbs x 8 Trap Bar Deadlift** 
+* **+45 lbs x 8 Weighted Pull-ups** 
+* **225 lbs x 8 Incline Smith Press**
+* **800 lbs x 8 Leg Press**
+* **150 lbs x 8 Overhead Press** 
 
 ---
 
@@ -73,12 +76,3 @@ Building a standard requires consistency in the daily habits that power growth:
   * Evaluate progress.
   * Decide whether to plan another show prep or continue building.
 
----
-
-## The Shift in Identity
-
-Instead of saying *"I'm trying to stay in shape,"* the answer is now simple: **"I'm in Project 168."**
-
-Psychologically, this shift is massive. I am no longer reacting to a completed show or floating without a target. Every training session, every meal, and every recovery habit now points toward this new, meaningful objective.
-
-Let's get to work. 💪
