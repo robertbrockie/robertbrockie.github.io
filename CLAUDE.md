@@ -2,18 +2,17 @@
 
 ## Athlete Profile
 - **Height:** 5'7"
-- **Current weight:** ~163.4 lbs (as of June 23, 2026)
-- **Goal:** Cut to ~158-160 lbs for stage
-- **Show:** July 19, 2026
-- **Cut start:** April 1, 2026 (~15.5 weeks out)
-- **Current nutrition (Phase 3, Week 12+):** ~1830 cal/day — 200g protein, 50g fat, 145-150g carbs
+- **Current weight:** ~164.6 lbs (as of July 21, 2026)
+- **Goal:** Project 168 (Build the strongest, most muscular version of myself at ~168 lbs)
+- **Current nutrition (Project 168):** ~2500 cal/day — 200g protein, 70g fat, 270g carbs
 - **Historical nutrition:**
   - **Phase 1 (Weeks 1-4):** ~2100 cal/day — 195g protein, 55g fat, 230g carbs (181 lbs -> 171.2 lbs)
   - **Phase 2 (Weeks 5-11):** ~1950 cal/day — 200g protein, 50g fat, 175g carbs (171.2 lbs -> ~163 lbs)
+  - **Phase 3 (Prep Cut End):** ~1830 cal/day — 200g protein, 50g fat, 145-150g carbs (163 lbs -> ~158 lbs)
 - **Training split:** Push (Mon) / Pull (Tue) / Legs quad-focus (Wed) / Rest (Thu) / Upper (Fri) / Legs hamstring-focus (Sat) / Rest (Sun)
 
 ## Project Overview
-A Jekyll static site hosted on GitHub Pages, documenting bodybuilding training for a July 2026 show. Includes workout logging, progress visualization, and training posts.
+A Jekyll static site hosted on GitHub Pages, documenting bodybuilding training for **Project 168**. Includes workout logging, progress visualization, and training posts.
 
 ## Tech Stack
 - **Jekyll** with the Minima theme
@@ -23,7 +22,6 @@ A Jekyll static site hosted on GitHub Pages, documenting bodybuilding training f
 
 ## Key Directories
 - `_posts/` — Daily training journal entries (date-prefixed markdown)
-- `_exercises/` — Exercise reference pages (Jekyll collection)
 - `training_log/` — JSON data files, one per exercise (do not delete)
 - `scripts/` — CLI tools (e.g. `log-workout.js`)
 - `_includes/` — Reusable HTML partials
@@ -57,4 +55,3 @@ node scripts/log-workout.js  # log a workout session
 ## Gotchas
 - `progress.md` uses `layout: page` and `permalink: /progress/` — required for styles to apply
 - Never use `toISOString()` for date handling (UTC shift bug) — use local date methods instead
-- `_exercises/` collection pages use `layout: exercise`
