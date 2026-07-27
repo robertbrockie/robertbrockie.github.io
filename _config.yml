@@ -5,11 +5,6 @@ accent_color: "#F6E27F"
 theme: minima
 permalink: /:year/:month/:day/:title.html
 
-collections:
-  exercises:
-    output: true
-    permalink: /exercises/:name/
-
 defaults:
   - scope:
       path: ""
@@ -22,9 +17,3 @@ defaults:
       type: posts
     values:
       categories: ["first-show"]
-
-  - scope:
-      path: ""
-      type: exercises
-    values:
-      layout: exercise
