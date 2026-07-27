@@ -3,6 +3,7 @@ description: "Training logs and exercise notes"
 profile_image: /assets/images/bmf.png
 accent_color: "#F6E27F"
 theme: minima
+permalink: /:year/:month/:day/:title.html
 
 collections:
   exercises:
@@ -15,7 +16,6 @@ defaults:
       type: posts
     values:
       layout: post
-      permalink: /:year/:month/:day/:title:output_ext
 
   - scope:
       path: ""

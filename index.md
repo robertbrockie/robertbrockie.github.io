@@ -67,7 +67,7 @@ title: Project 168
 
 <h2 class="project-section-title">Project 168 Journal Logs</h2>
 
-{% assign project_posts = site.posts | where_exp: "item", "item.categories contains 'first-show' == false" %}
+{% assign project_posts = site.posts | where_exp: "item", "item.category != 'first-show'" %}
 {% if project_posts.size > 0 %}
   <ul class="post-list">
     {% for post in project_posts %}

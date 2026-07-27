@@ -9,7 +9,7 @@ This page archives all 178 daily preparation logs, nutrition updates, and liftin
 ---
 
 <ul class="post-list">
-  {% assign show_posts = site.posts | where_exp: "item", "item.categories contains 'first-show'" %}
+  {% assign show_posts = site.posts | where_exp: "item", "item.category == 'first-show'" %}
   {% for post in show_posts %}
     <li>
       <span class="post-meta">{{ post.date | date: "%b %d, %Y" }}</span>
