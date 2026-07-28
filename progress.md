@@ -4,6 +4,13 @@ title: Progress
 permalink: /progress/
 ---
 
+<h2 class="goals-dashboard-title">Project 168 Strength Goals</h2>
+<div class="goals-dashboard" id="goals-dashboard">
+  <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #888;">
+    Loading strength goals progress...
+  </div>
+</div>
+
 <div class="progress-chart" style="margin-bottom: 2rem;">
   <h3>Body Weight Over Time</h3>
   <canvas id="bodyWeightChart"></canvas>
@@ -284,6 +291,104 @@ permalink: /progress/
     }
   }
 
+  const STRENGTH_GOALS = [
+    { name: 'Weighted Pull-ups', slug: 'pullups', goalW: 45, goalR: 8 },
+    { name: 'Weighted Dips', slug: 'dips', goalW: 135, goalR: 8 },
+    { name: 'Hack Squat', slug: 'hack-squat', goalW: 405, goalR: 8 },
+    { name: 'Trap Bar Deadlift', slug: 'trapbar-deadlift', goalW: 405, goalR: 8 },
+    { name: 'Incline Smith Press', slug: 'incline-smith-press', goalW: 225, goalR: 8 },
+    { name: 'Leg Press', slug: 'leg-press', goalW: 800, goalR: 8 },
+    { name: 'Overhead Press', slug: 'overhead-press', goalW: 150, goalR: 8 }
+  ];
+
+  function calculate1RM(weight, reps) {
+    if (reps <= 0) return 0;
+    if (reps === 1) return weight;
+    return weight * (1 + reps / 30);
+  }
+
+  async function loadGoalsProgress() {
+    const dashboard = document.getElementById('goals-dashboard');
+    try {
+      const promises = STRENGTH_GOALS.map(async goal => {
+        try {
+          const res = await fetch(`${BASE_URL}/${goal.slug}.json`);
+          if (!res.ok) throw new Error('Not found');
+          const data = await res.json();
+          
+          let best1RM = 0;
+          let bestSet = { weight: 0, reps: 0 };
+          let bestDate = 'N/A';
+
+          data.log.forEach(session => {
+            session.sets.forEach(set => {
+              const oneRM = calculate1RM(set.weight, set.reps);
+              if (oneRM > best1RM) {
+                best1RM = oneRM;
+                bestSet = set;
+                bestDate = session.date;
+              }
+            });
+          });
+
+          const target1RM = calculate1RM(goal.goalW, goal.goalR);
+          const pct = target1RM > 0 ? Math.min(Math.round((best1RM / target1RM) * 100), 150) : 0;
+
+          return {
+            ...goal,
+            bestSet,
+            bestDate,
+            pct,
+            target1RM,
+            best1RM
+          };
+        } catch (err) {
+          return {
+            ...goal,
+            bestSet: { weight: 0, reps: 0 },
+            bestDate: 'N/A',
+            pct: 0,
+            target1RM: calculate1RM(goal.goalW, goal.goalR),
+            best1RM: 0
+          };
+        }
+      });
+
+      const results = await Promise.all(promises);
+      dashboard.innerHTML = '';
+
+      results.forEach(res => {
+        const card = document.createElement('div');
+        card.className = 'goal-card';
+        
+        const bestLabel = res.bestSet.reps > 0 ? `${res.bestSet.weight} lbs × ${res.bestSet.reps}` : 'N/A';
+        const goalLabel = `${res.goalW} lbs × ${res.goalR}`;
+
+        card.innerHTML = `
+          <div class="goal-card__header">
+            <h4 class="goal-card__title">${res.name}</h4>
+            <span class="goal-card__pct">${res.pct}%</span>
+          </div>
+          <div class="goal-card__details">
+            <div>Goal: <strong>${goalLabel}</strong></div>
+            <div>Best: <strong>${bestLabel}</strong></div>
+          </div>
+          <div class="goal-card__details" style="grid-template-columns: 1fr; margin-bottom: 0;">
+            <div style="font-size: 0.75rem; color: #999;">Best Est. 1RM: <strong>${Math.round(res.best1RM)} lbs</strong> (Goal 1RM: ${Math.round(res.target1RM)} lbs)</div>
+          </div>
+          <div class="goal-card__bar-bg">
+            <div class="goal-card__bar-fill" style="width: ${Math.min(res.pct, 100)}%;"></div>
+          </div>
+        `;
+        dashboard.appendChild(card);
+      });
+    } catch (error) {
+      console.error('Failed loading goals dashboard:', error);
+      dashboard.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #ff5252;">Error loading goals dashboard.</div>';
+    }
+  }
+
   loadExerciseIndex();
   loadBodyWeightData();
+  loadGoalsProgress();
 </script>
