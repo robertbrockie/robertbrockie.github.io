@@ -4,13 +4,6 @@ title: Progress
 permalink: /progress/
 ---
 
-<h2 class="goals-dashboard-title">Project 168 Strength Goals</h2>
-<div class="goals-dashboard" id="goals-dashboard">
-  <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #888;">
-    Loading strength goals progress...
-  </div>
-</div>
-
 <div class="progress-chart" style="margin-bottom: 2rem;">
   <h3>Body Weight Over Time</h3>
   <canvas id="bodyWeightChart"></canvas>
@@ -56,6 +49,13 @@ permalink: /progress/
 
 <div id="no-data" class="progress-no-data">
   <p>Select an exercise to view your progress.</p>
+</div>
+
+<h2 class="goals-dashboard-title">Project 168 Strength Goals</h2>
+<div class="goals-dashboard" id="goals-dashboard">
+  <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #888;">
+    Loading strength goals progress...
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
