@@ -8,20 +8,28 @@ This is the repository of a GitHub blog that documents my training as I prepare 
 
 ## Local Development
 
-To run this blog locally and manage your logs, ensure you have **Ruby** (with Bundler) and **Node.js** installed.
+To run this blog locally and manage your logs, you can choose between two methods:
 
-### Setup
-Install the Ruby/Jekyll dependencies:
-```bash
-bundle install
-```
+### Method A: With Ruby (Native)
+Ensure you have **Ruby** (with Bundler) and **Node.js** installed on your machine.
+1. Install dependencies:
+   ```bash
+   bundle install
+   ```
+2. Start the local server:
+   ```bash
+   npm run dev
+   ```
 
-### Run Commands
-We use NPM scripts to run the local server and workflow tools:
-* **Start local server**: `npm run dev` (serves the Jekyll site at `http://localhost:4000`)
-* **Log a workout**: `npm run log` (runs the workout logging CLI tool)
-* **Backfill body weights**: `npm run backfill` (backfills weight records from your journal posts)
-* **Build site static files**: `npm run build` (compiles the Jekyll site locally)
+### Method B: Without Ruby (Using Docker)
+If you don't have Ruby installed, you can use **Docker** to build and serve the site containerized:
+* **Start local server**: `npm run dev:docker` (serves the Jekyll site at `http://localhost:4000` via Docker)
+* **Build site**: `npm run build:docker` (compiles the Jekyll site via Docker)
+
+### Other Workflow Commands
+We use NPM scripts to simplify other daily tasks:
+* **Log a workout**: `npm run log` (runs the workout logging CLI tool; requires Node.js)
+* **Backfill body weights**: `npm run backfill` (backfills weight records from your journal posts; requires Node.js)
 
 ## Workout Logging
 
