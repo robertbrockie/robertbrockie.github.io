@@ -4,7 +4,24 @@
 
 
 
-This is the repository of a GitHub blog that documents my training as I prepare for a bodybuilding show in July.
+This is the repository of a GitHub blog that documents my training as I prepare for a bodybuilding show in July and track my progress for **Project 168**.
+
+## Local Development
+
+To run this blog locally and manage your logs, ensure you have **Ruby** (with Bundler) and **Node.js** installed.
+
+### Setup
+Install the Ruby/Jekyll dependencies:
+```bash
+bundle install
+```
+
+### Run Commands
+We use NPM scripts to run the local server and workflow tools:
+* **Start local server**: `npm run dev` (serves the Jekyll site at `http://localhost:4000`)
+* **Log a workout**: `npm run log` (runs the workout logging CLI tool)
+* **Backfill body weights**: `npm run backfill` (backfills weight records from your journal posts)
+* **Build site static files**: `npm run build` (compiles the Jekyll site locally)
 
 ## Workout Logging
 
@@ -12,7 +29,7 @@ This repo includes a CLI tool to log workouts and track progress over time.
 
 ### How to Log a Workout
 
-Run the workout logger:
+Run the workout logger (or use `npm run log`):
 ```bash
 node scripts/log-workout.js
 ```
