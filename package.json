@@ -1,0 +1,14 @@
+{
+  "name": "robertbrockie.github.io",
+  "version": "1.0.0",
+  "description": "Brock's Bodybuilding Journal",
+  "scripts": {
+    "dev": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build",
+    "log": "node scripts/log-workout.js",
+    "backfill": "node scripts/backfill-weights.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
