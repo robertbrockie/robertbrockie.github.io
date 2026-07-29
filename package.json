@@ -4,7 +4,7 @@
   "description": "Brock's Bodybuilding Journal",
   "scripts": {
     "dev": "bundle exec jekyll serve",
-    "dev:docker": "docker run --rm --volume=\"jekyll-gems:/usr/local/bundle\" --volume=\"$PWD:/srv/jekyll\" -p 4000:4000 -it jekyll/jekyll sh -c \"bundle check || bundle install && bundle exec jekyll serve\"",
+    "dev:docker": "docker run --rm --volume=\"jekyll-gems:/usr/local/bundle\" --volume=\"$PWD:/srv/jekyll\" -p 4000:4000 -it jekyll/jekyll sh -c \"bundle check || bundle install && bundle exec jekyll serve --host 0.0.0.0\"",
     "build": "bundle exec jekyll build",
     "build:docker": "docker run --rm --volume=\"jekyll-gems:/usr/local/bundle\" --volume=\"$PWD:/srv/jekyll\" -it jekyll/jekyll sh -c \"bundle check || bundle install && bundle exec jekyll build\"",
     "log": "node scripts/log-workout.js",
