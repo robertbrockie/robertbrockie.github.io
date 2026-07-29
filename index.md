@@ -42,7 +42,7 @@ title: Project 168
         <td>150 × 8</td>
       </tr>
       <tr>
-        <td><strong>Cable Row</strong></td>
+        <td><strong>Cable Row (Close Grip)</strong></td>
         <td>175 × 11</td>
         <td>200 × 10</td>
       </tr>

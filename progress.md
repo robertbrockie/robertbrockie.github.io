@@ -298,7 +298,8 @@ permalink: /progress/
     { name: 'Trap Bar Deadlift', slug: 'trapbar-deadlift', goalW: 405, goalR: 8 },
     { name: 'Incline Smith Press', slug: 'incline-smith-press', goalW: 225, goalR: 8 },
     { name: 'Leg Press', slug: 'leg-press', goalW: 800, goalR: 8 },
-    { name: 'Overhead Press', slug: 'overhead-press', goalW: 150, goalR: 8 }
+    { name: 'Overhead Press', slug: 'overhead-press', goalW: 150, goalR: 8 },
+    { name: 'Cable Row (Close Grip)', slug: 'cable-row-close-grip', goalW: 200, goalR: 10 }
   ];
 
   function calculate1RM(weight, reps) {
