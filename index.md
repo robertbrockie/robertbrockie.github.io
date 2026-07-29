@@ -37,9 +37,9 @@ title: Project 168
         <td>225 × 8</td>
       </tr>
       <tr>
-        <td><strong>Barbell OHP</strong></td>
+        <td><strong>Overhead Press</strong></td>
         <td>125 × 8</td>
-        <td>145 × 8</td>
+        <td>150 × 8</td>
       </tr>
       <tr>
         <td><strong>Cable Row</strong></td>
@@ -59,7 +59,7 @@ title: Project 168
       <tr>
         <td><strong>Leg Press</strong></td>
         <td>707 × 8</td>
-        <td>810 × 10</td>
+        <td>800 × 8</td>
       </tr>
     </tbody>
   </table>
