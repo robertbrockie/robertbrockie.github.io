@@ -274,20 +274,26 @@ function generateOrUpdatePost(workoutDate) {
 
   let mdContent = `---\nlayout: post\ntitle: "${workoutDate}"\n---\n\n`;
 
-  if (bodyWeight) {
-    mdContent += `**Morning Weight:** ${bodyWeight} lbs\n\n`;
-  }
+  mdContent += `<div class="workout-post">\n\n`;
 
-  mdContent += `### Workout Log\n\n`;
+  if (bodyWeight) {
+    mdContent += `<div class="workout-post__weight">⚖️ Morning Weight: <strong>${bodyWeight} lbs</strong></div>\n\n`;
+  }
 
   exercises.forEach(ex => {
     const exSlug = slugify(ex.title);
     const goal = STRENGTH_GOALS.find(g => normalizeSlug(g.slug) === normalizeSlug(exSlug));
 
-    mdContent += `#### ${ex.title}\n`;
+    mdContent += `<div class="workout-exercise-card">\n`;
+    mdContent += `  <h3 class="workout-exercise-card__title">${ex.title}</h3>\n\n`;
+    
+    mdContent += `  <table class="workout-sets-table">\n`;
+    mdContent += `    <thead>\n      <tr>\n        <th>Set</th>\n        <th>Weight</th>\n        <th>Reps</th>\n      </tr>\n    </thead>\n    <tbody>\n`;
+    
     ex.sets.forEach((set, idx) => {
-      mdContent += `- Set ${idx + 1}: ${set.weight} lbs × ${set.reps} reps\n`;
+      mdContent += `      <tr>\n        <td>Set ${idx + 1}</td>\n        <td><strong>${set.weight} lbs</strong></td>\n        <td>${set.reps} reps</td>\n      </tr>\n`;
     });
+    mdContent += `    </tbody>\n  </table>\n`;
 
     if (goal) {
       const exData = loadExerciseData(exSlug);
@@ -320,16 +326,25 @@ function generateOrUpdatePost(workoutDate) {
       const todayPct = target1RM > 0 ? Math.round((todayBest1RM / target1RM) * 100) : 0;
       const lifetimePct = target1RM > 0 ? Math.round((best1RM / target1RM) * 100) : 0;
 
-      mdContent += `\n* **Goal Progress (${goal.goalW} lbs × ${goal.goalR}):**\n`;
+      mdContent += `\n  <div class="workout-goal-progress">\n`;
+      mdContent += `    <div class="workout-goal-progress__title">🎯 Goal Progress (${goal.goalW} lbs × ${goal.goalR})</div>\n`;
+      mdContent += `    <div class="workout-goal-progress__metrics">\n`;
       if (todayBestSet) {
-        mdContent += `  * Today's Best: ${todayBestSet.weight} lbs × ${todayBestSet.reps} (${Math.round(todayBest1RM)} lbs Est. 1RM | ${todayPct}% of goal)\n`;
+        mdContent += `      <div>Today's Best: <strong>${todayBestSet.weight} lbs × ${todayBestSet.reps}</strong> (${Math.round(todayBest1RM)} lbs Est. 1RM | ${todayPct}% of goal)</div>\n`;
       }
       if (bestSet) {
-        mdContent += `  * Lifetime Best: ${bestSet.weight} lbs × ${bestSet.reps} (${Math.round(best1RM)} lbs Est. 1RM | ${lifetimePct}% of goal)\n`;
+        mdContent += `      <div>Lifetime Best: <strong>${bestSet.weight} lbs × ${bestSet.reps}</strong> (${Math.round(best1RM)} lbs Est. 1RM | ${lifetimePct}% of goal)</div>\n`;
       }
+      mdContent += `    </div>\n`;
+      mdContent += `    <div class="workout-goal-progress__bar-bg">\n`;
+      mdContent += `      <div class="workout-goal-progress__bar-fill" style="width: ${Math.min(lifetimePct, 100)}%;"></div>\n`;
+      mdContent += `    </div>\n`;
+      mdContent += `  </div>\n`;
     }
-    mdContent += `\n`;
+    mdContent += `</div>\n\n`;
   });
+
+  mdContent += `</div>\n`;
 
   fs.writeFileSync(postPath, mdContent, 'utf8');
   console.log(`✓ Generated post: _posts/${postFileName}`);
