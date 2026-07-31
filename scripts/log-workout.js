@@ -232,6 +232,109 @@ async function logExercise(exerciseName, muscles, workoutDate) {
   }
 }
 
+const STRENGTH_GOALS = [
+  { name: 'Weighted Pullups', slug: 'pullups', goalW: 45, goalR: 8 },
+  { name: 'Weighted Dips', slug: 'dips', goalW: 135, goalR: 8 },
+  { name: 'Hack Squat', slug: 'hack-squat', goalW: 405, goalR: 8 },
+  { name: 'Trap Bar Deadlift', slug: 'trapbar-deadlift', goalW: 405, goalR: 8 },
+  { name: 'Incline Smith Press', slug: 'incline-smith-press', goalW: 225, goalR: 8 },
+  { name: 'Leg Press', slug: 'leg-press', goalW: 800, goalR: 8 },
+  { name: 'Overhead Press', slug: 'overhead-press', goalW: 150, goalR: 8 },
+  { name: 'Cable Row (Close Grip)', slug: 'cable-row-close-grip', goalW: 200, goalR: 10 }
+];
+
+function normalizeSlug(slug) {
+  return slug.replace(/-/g, '').replace(/_/g, '').toLowerCase();
+}
+
+function calculate1RM(weight, reps) {
+  if (reps <= 0) return 0;
+  if (reps === 1) return weight;
+  return weight * (1 + reps / 30);
+}
+
+function generateOrUpdatePost(workoutDate) {
+  const postFileName = `${workoutDate}-project-168.md`;
+  const postPath = path.join(__dirname, '../_posts', postFileName);
+
+  // Get body weight
+  const weightLogPath = path.join(TRAINING_LOG_DIR, 'body-weight.json');
+  let bodyWeight = null;
+  if (fs.existsSync(weightLogPath)) {
+    const weightLog = JSON.parse(fs.readFileSync(weightLogPath, 'utf8'));
+    const entry = weightLog.find(e => e.date === workoutDate);
+    if (entry) bodyWeight = entry.weight;
+  }
+
+  // Get all exercises logged on this date
+  const exercises = getAllExercisesForDate(workoutDate);
+  if (exercises.length === 0) {
+    return;
+  }
+
+  let mdContent = `---\nlayout: post\ntitle: "${workoutDate}"\n---\n\n`;
+
+  if (bodyWeight) {
+    mdContent += `**Morning Weight:** ${bodyWeight} lbs\n\n`;
+  }
+
+  mdContent += `### Workout Log\n\n`;
+
+  exercises.forEach(ex => {
+    const exSlug = slugify(ex.title);
+    const goal = STRENGTH_GOALS.find(g => normalizeSlug(g.slug) === normalizeSlug(exSlug));
+
+    mdContent += `#### ${ex.title}\n`;
+    ex.sets.forEach((set, idx) => {
+      mdContent += `- Set ${idx + 1}: ${set.weight} lbs × ${set.reps} reps\n`;
+    });
+
+    if (goal) {
+      const exData = loadExerciseData(exSlug);
+      let best1RM = 0;
+      let bestSet = null;
+
+      if (exData && exData.log) {
+        exData.log.forEach(session => {
+          session.sets.forEach(set => {
+            const oneRM = calculate1RM(set.weight, set.reps);
+            if (oneRM > best1RM) {
+              best1RM = oneRM;
+              bestSet = set;
+            }
+          });
+        });
+      }
+
+      let todayBest1RM = 0;
+      let todayBestSet = null;
+      ex.sets.forEach(set => {
+        const oneRM = calculate1RM(set.weight, set.reps);
+        if (oneRM > todayBest1RM) {
+          todayBest1RM = oneRM;
+          todayBestSet = set;
+        }
+      });
+
+      const target1RM = calculate1RM(goal.goalW, goal.goalR);
+      const todayPct = target1RM > 0 ? Math.round((todayBest1RM / target1RM) * 100) : 0;
+      const lifetimePct = target1RM > 0 ? Math.round((best1RM / target1RM) * 100) : 0;
+
+      mdContent += `\n* **Goal Progress (${goal.goalW} lbs × ${goal.goalR}):**\n`;
+      if (todayBestSet) {
+        mdContent += `  * Today's Best: ${todayBestSet.weight} lbs × ${todayBestSet.reps} (${Math.round(todayBest1RM)} lbs Est. 1RM | ${todayPct}% of goal)\n`;
+      }
+      if (bestSet) {
+        mdContent += `  * Lifetime Best: ${bestSet.weight} lbs × ${bestSet.reps} (${Math.round(best1RM)} lbs Est. 1RM | ${lifetimePct}% of goal)\n`;
+      }
+    }
+    mdContent += `\n`;
+  });
+
+  fs.writeFileSync(postPath, mdContent, 'utf8');
+  console.log(`✓ Generated post: _posts/${postFileName}`);
+}
+
 async function main() {
   console.log('=== Workout Logger ===\n');
 
@@ -298,6 +401,9 @@ async function main() {
 
   // Update the exercise index for the progress page
   generateExerciseIndex();
+
+  // Generate or update the blog post for this workout session
+  generateOrUpdatePost(workoutDate);
 
   console.log('\n✓ Workout logged successfully!\n');
   rl.close();
