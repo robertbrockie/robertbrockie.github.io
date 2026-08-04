@@ -8,21 +8,7 @@ This is the repository of a GitHub blog that documents my training as I prepare 
 
 ## Local Development
 
-To run this blog locally and manage your logs, you can choose between two methods:
-
-### Method A: With Ruby (Native)
-Ensure you have **Ruby** (with Bundler) and **Node.js** installed on your machine.
-1. Install dependencies:
-   ```bash
-   bundle install
-   ```
-2. Start the local server:
-   ```bash
-   npm run dev
-   ```
-
-### Method B: Without Ruby (Using Docker)
-If you don't have Ruby installed, you can use **Docker** to build and serve the site containerized:
+To run this blog locally and test code changes. Use **Docker** to build and serve the site containerized:
 * **Start local server**: `npm run dev:docker` (serves the Jekyll site at `http://localhost:4000` via Docker)
 * **Build site**: `npm run build:docker` (compiles the Jekyll site via Docker)
 
