@@ -270,6 +270,76 @@ function getSetTrend(todaySet, prevSet) {
   return null;
 }
 
+function getExerciseMuscles(exSlug, exData) {
+  let muscles = exData?.metadata?.muscles || [];
+  if (muscles.length === 0) {
+    const slug = exSlug.toLowerCase();
+    if (slug.includes('press') || slug.includes('dip') || slug.includes('pec') || slug.includes('fly')) {
+      if (slug.includes('shoulder') || slug.includes('overhead')) {
+        return ['Shoulders'];
+      } else if (slug.includes('leg') || slug.includes('bench') || slug.includes('hack')) {
+        if (slug.includes('bench') || slug.includes('press')) {
+          if (slug.includes('leg')) {
+            return ['Legs'];
+          } else {
+            return ['Chest'];
+          }
+        }
+      } else {
+        return ['Chest'];
+      }
+    } else if (slug.includes('row') || slug.includes('pull') || slug.includes('chin') || slug.includes('shrug') || slug.includes('deadlift')) {
+      return ['Back'];
+    } else if (slug.includes('curl') || slug.includes('extension') || slug.includes('skull')) {
+      if (slug.includes('leg') || slug.includes('calf') || slug.includes('hamstring')) {
+        return ['Legs'];
+      } else {
+        return ['Arms'];
+      }
+    } else if (slug.includes('squat') || slug.includes('calf') || slug.includes('raise') || slug.includes('thrust') || slug.includes('lunge') || slug.includes('leg') || slug.includes('glute')) {
+      return ['Legs'];
+    }
+  }
+  return muscles;
+}
+
+function getWorkoutPrefix(exercises) {
+  let chestCount = 0;
+  let backCount = 0;
+  let legCount = 0;
+
+  exercises.forEach(ex => {
+    const exSlug = slugify(ex.title);
+    const exData = loadExerciseData(exSlug);
+    const muscles = getExerciseMuscles(exSlug, exData);
+
+    muscles.forEach(m => {
+      const lowerM = m.toLowerCase();
+      if (lowerM === 'chest') {
+        chestCount++;
+      } else if (lowerM === 'back' || lowerM === 'lats') {
+        backCount++;
+      } else if (['legs', 'leg', 'hamstrings', 'glutes', 'calves', 'quads', 'thighs'].includes(lowerM)) {
+        legCount++;
+      }
+    });
+  });
+
+  if (chestCount > 0 && backCount > 0) {
+    return 'Upper Body';
+  }
+  if (legCount >= 2) {
+    return '🦵';
+  }
+  if (backCount >= 2) {
+    return 'Pull';
+  }
+  if (chestCount >= 2) {
+    return 'Push';
+  }
+  return '';
+}
+
 function generateOrUpdatePost(workoutDate) {
   const postFileName = `${workoutDate}-project-168.md`;
   const postPath = path.join(__dirname, '../_posts', postFileName);
@@ -289,7 +359,10 @@ function generateOrUpdatePost(workoutDate) {
     return;
   }
 
-  let mdContent = `---\nlayout: post\ntitle: "${workoutDate}"\n---\n\n`;
+  const prefix = getWorkoutPrefix(exercises);
+  const titleStr = prefix ? `${prefix} - ${workoutDate}` : workoutDate;
+
+  let mdContent = `---\nlayout: post\ntitle: "${titleStr}"\n---\n\n`;
 
   mdContent += `<div class="workout-post">\n\n`;
 
@@ -463,5 +536,5 @@ async function main() {
 if (require.main === module) {
   main();
 } else {
-  module.exports = { getSetTrend, calculate1RM, generateOrUpdatePost };
+  module.exports = { getSetTrend, calculate1RM, generateOrUpdatePost, getWorkoutPrefix };
 }

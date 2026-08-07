@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { getSetTrend } = require('./log-workout');
+const { getSetTrend, getWorkoutPrefix } = require('./log-workout');
 
 console.log('Running trend logic unit tests...');
 
@@ -34,10 +34,70 @@ testCases.forEach((tc, idx) => {
   const result = getSetTrend(tc.today, tc.prev);
   try {
     assert.strictEqual(result, tc.expected);
-    console.log(`✓ Test ${idx + 1} passed`);
+    console.log(`✓ Trend Test ${idx + 1} passed`);
   } catch (err) {
-    console.error(`✗ Test ${idx + 1} failed: expected '${tc.expected}', got '${result}'`);
+    console.error(`✗ Trend Test ${idx + 1} failed: expected '${tc.expected}', got '${result}'`);
     console.error(`  Input: today=${JSON.stringify(tc.today)}, prev=${JSON.stringify(tc.prev)}`);
+    failed++;
+  }
+});
+
+console.log('\nRunning workout classification unit tests...');
+
+const classificationCases = [
+  {
+    name: 'Leg Day (Multiple Legs exercises)',
+    exercises: [
+      { title: 'Trapbar Deadlift' }, // Back
+      { title: 'Leg Curls - Seated' }, // Legs
+      { title: 'Calf Raises' }, // Legs
+      { title: 'Hip Thrusts (Front loaded plates)' }, // Legs, Glutes
+      { title: 'Single Leg Curl' } // Legs
+    ],
+    expected: '🦵'
+  },
+  {
+    name: 'Pull Day (Multiple Back exercises)',
+    exercises: [
+      { title: 'Pullups' },
+      { title: 'Tbar Rows - Chest Supported' },
+      { title: 'Low Rows' }
+    ],
+    expected: 'Pull'
+  },
+  {
+    name: 'Push Day (Multiple Chest exercises)',
+    exercises: [
+      { title: 'Incline DB Press' },
+      { title: 'Dips' },
+      { title: 'Pec Deck' }
+    ],
+    expected: 'Push'
+  },
+  {
+    name: 'Upper Body (Mix of Chest and Back)',
+    exercises: [
+      { title: 'Pullups' },
+      { title: 'Dips' }
+    ],
+    expected: 'Upper Body'
+  },
+  {
+    name: 'Undefined / Other Workout (Doesn\'t fit criteria)',
+    exercises: [
+      { title: 'Wrist Curls' }
+    ],
+    expected: ''
+  }
+];
+
+classificationCases.forEach((tc, idx) => {
+  const result = getWorkoutPrefix(tc.exercises);
+  try {
+    assert.strictEqual(result, tc.expected);
+    console.log(`✓ Classification Test ${idx + 1} passed (${tc.name})`);
+  } catch (err) {
+    console.error(`✗ Classification Test ${idx + 1} failed (${tc.name}): expected '${tc.expected}', got '${result}'`);
     failed++;
   }
 });
