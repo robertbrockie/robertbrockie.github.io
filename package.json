@@ -8,7 +8,9 @@
     "build": "bundle exec jekyll build",
     "build:docker": "docker run --name body-builder-journal --rm --volume=\"jekyll-gems:/usr/local/bundle\" --volume=\"$PWD:/srv/jekyll\" -it jekyll/jekyll sh -c \"bundle check || bundle install && bundle exec jekyll build\"",
     "log": "node scripts/log-workout.js",
-    "backfill": "node scripts/backfill-weights.js"
+    "backfill": "node scripts/backfill-weights.js",
+    "test": "node scripts/test-trend.js",
+    "regenerate-posts": "node scripts/regenerate-posts.js"
   },
   "keywords": [],
   "author": "",

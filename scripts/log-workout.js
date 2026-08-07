@@ -261,24 +261,11 @@ function getSetTrend(todaySet, prevSet) {
   const w2 = prevSet.weight;
   const r2 = prevSet.reps;
 
-  // Clear progress cases
-  if ((w1 > w2 && r1 >= r2) || (w1 === w2 && r1 > r2)) {
-    return 'up';
-  }
-  // Clear decrease cases
-  if ((w1 < w2 && r1 <= r2) || (w1 === w2 && r1 < r2)) {
-    return 'down';
-  }
+  if (w1 > w2) return 'up';
+  if (w1 < w2) return 'down';
 
-  // Mixed cases: compare estimated 1RM
-  const oneRM1 = calculate1RM(w1, r1);
-  const oneRM2 = calculate1RM(w2, r2);
-
-  if (oneRM1 > oneRM2) {
-    return 'up';
-  } else if (oneRM1 < oneRM2) {
-    return 'down';
-  }
+  if (r1 > r2) return 'up';
+  if (r1 < r2) return 'down';
 
   return null;
 }
@@ -473,4 +460,8 @@ async function main() {
   rl.close();
 }
 
-main();
+if (require.main === module) {
+  main();
+} else {
+  module.exports = { getSetTrend, calculate1RM, generateOrUpdatePost };
+}
