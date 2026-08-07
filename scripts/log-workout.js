@@ -253,6 +253,36 @@ function calculate1RM(weight, reps) {
   return weight * (1 + reps / 30);
 }
 
+function getSetTrend(todaySet, prevSet) {
+  if (!todaySet || !prevSet) return null;
+
+  const w1 = todaySet.weight;
+  const r1 = todaySet.reps;
+  const w2 = prevSet.weight;
+  const r2 = prevSet.reps;
+
+  // Clear progress cases
+  if ((w1 > w2 && r1 >= r2) || (w1 === w2 && r1 > r2)) {
+    return 'up';
+  }
+  // Clear decrease cases
+  if ((w1 < w2 && r1 <= r2) || (w1 === w2 && r1 < r2)) {
+    return 'down';
+  }
+
+  // Mixed cases: compare estimated 1RM
+  const oneRM1 = calculate1RM(w1, r1);
+  const oneRM2 = calculate1RM(w2, r2);
+
+  if (oneRM1 > oneRM2) {
+    return 'up';
+  } else if (oneRM1 < oneRM2) {
+    return 'down';
+  }
+
+  return null;
+}
+
 function generateOrUpdatePost(workoutDate) {
   const postFileName = `${workoutDate}-project-168.md`;
   const postPath = path.join(__dirname, '../_posts', postFileName);
@@ -283,6 +313,15 @@ function generateOrUpdatePost(workoutDate) {
   exercises.forEach(ex => {
     const exSlug = slugify(ex.title);
     const goal = STRENGTH_GOALS.find(g => normalizeSlug(g.slug) === normalizeSlug(exSlug));
+    const exData = loadExerciseData(exSlug);
+
+    let prevWorkout = null;
+    if (exData && exData.log) {
+      const currentEntryIndex = exData.log.findIndex(entry => entry.date === workoutDate);
+      if (currentEntryIndex !== -1 && currentEntryIndex + 1 < exData.log.length) {
+        prevWorkout = exData.log[currentEntryIndex + 1];
+      }
+    }
 
     mdContent += `<div class="workout-exercise-card">\n`;
     mdContent += `  <h3 class="workout-exercise-card__title">${ex.title}</h3>\n\n`;
@@ -291,7 +330,17 @@ function generateOrUpdatePost(workoutDate) {
     mdContent += `    <thead>\n      <tr>\n        <th>Set</th>\n        <th>Weight</th>\n        <th>Reps</th>\n      </tr>\n    </thead>\n    <tbody>\n`;
     
     ex.sets.forEach((set, idx) => {
-      mdContent += `      <tr>\n        <td>Set ${idx + 1}</td>\n        <td><strong>${set.weight} lbs</strong></td>\n        <td>${set.reps} reps</td>\n      </tr>\n`;
+      let trendHtml = '';
+      if (prevWorkout && prevWorkout.sets && prevWorkout.sets[idx]) {
+        const prevSet = prevWorkout.sets[idx];
+        const trend = getSetTrend(set, prevSet);
+        if (trend === 'up') {
+          trendHtml = ` <span class="workout-trend workout-trend--up" title="Previous: ${prevSet.weight} lbs x ${prevSet.reps} reps">↑</span>`;
+        } else if (trend === 'down') {
+          trendHtml = ` <span class="workout-trend workout-trend--down" title="Previous: ${prevSet.weight} lbs x ${prevSet.reps} reps">↓</span>`;
+        }
+      }
+      mdContent += `      <tr>\n        <td>Set ${idx + 1}</td>\n        <td><strong>${set.weight} lbs</strong></td>\n        <td>${set.reps} reps${trendHtml}</td>\n      </tr>\n`;
     });
     mdContent += `    </tbody>\n  </table>\n`;
 
