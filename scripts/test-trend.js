@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { getSetTrend, getWorkoutPrefix } = require('./log-workout');
+const { getSetTrend, getWorkoutPrefix } = require('./post-generator');
 
 console.log('Running trend logic unit tests...');
 

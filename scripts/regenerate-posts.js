@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { generateOrUpdatePost } = require('./log-workout');
+const { generateOrUpdatePost } = require('./post-generator');
 
 const postsDir = path.join(__dirname, '../_posts');
 

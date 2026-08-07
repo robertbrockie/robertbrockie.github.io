@@ -10,7 +10,8 @@
     "log": "node scripts/log-workout.js",
     "backfill": "node scripts/backfill-weights.js",
     "test": "node scripts/test-trend.js",
-    "regenerate-posts": "node scripts/regenerate-posts.js"
+    "regenerate-posts": "node scripts/regenerate-posts.js",
+    "backfill-muscles": "node scripts/backfill-muscles.js"
   },
   "keywords": [],
   "author": "",
