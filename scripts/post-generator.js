@@ -284,5 +284,6 @@ module.exports = {
   getExerciseMuscles,
   getWorkoutPrefix,
   generateOrUpdatePost,
-  loadExerciseData
+  loadExerciseData,
+  getAllExercisesForDate
 };
