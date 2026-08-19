@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Seated Single Arm Cable Rows",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-08-19",
+      "timestamp": 1787145224667,
+      "sets": [
+        {
+          "weight": 160,
+          "reps": 9
+        },
+        {
+          "weight": 135,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
