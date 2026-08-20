@@ -67,6 +67,8 @@ function getExerciseMuscles(exSlug, exData) {
       }
     } else if (slug.includes('row') || slug.includes('pull') || slug.includes('chin') || slug.includes('shrug') || slug.includes('deadlift')) {
       return ['Back'];
+    } else if (slug.includes('crunch') || slug.includes('situp') || slug.includes('sit-up') || slug.includes('plank') || slug.includes('oblique')) {
+      return ['Abs'];
     } else if (slug.includes('curl') || slug.includes('extension') || slug.includes('skull')) {
       if (slug.includes('leg') || slug.includes('calf') || slug.includes('hamstring')) {
         return ['Legs'];
@@ -95,6 +97,7 @@ function getWorkoutPrefix(exercises) {
   let chestCount = 0;
   let backCount = 0;
   let legCount = 0;
+  let absCount = 0;
 
   exercises.forEach(ex => {
     const exSlug = slugify(ex.title);
@@ -109,6 +112,8 @@ function getWorkoutPrefix(exercises) {
         backCount++;
       } else if (['legs', 'leg', 'hamstrings', 'glutes', 'calves', 'quads', 'thighs'].includes(lowerM)) {
         legCount++;
+      } else if (['abs', 'obliques', 'core'].includes(lowerM)) {
+        absCount++;
       }
     });
   });
@@ -124,6 +129,9 @@ function getWorkoutPrefix(exercises) {
   }
   if (chestCount >= 2) {
     return 'Push';
+  }
+  if (absCount >= 2) {
+    return 'Abs';
   }
   return '';
 }
