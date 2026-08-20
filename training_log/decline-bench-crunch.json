@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Decline Bench Crunch",
+    "muscles": [
+      "Abs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-08-20",
+      "timestamp": 1787236310033,
+      "sets": [
+        {
+          "weight": 10,
+          "reps": 10
+        },
+        {
+          "weight": 10,
+          "reps": 10
+        },
+        {
+          "weight": 10,
+          "reps": 10
+        },
+        {
+          "weight": 10,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

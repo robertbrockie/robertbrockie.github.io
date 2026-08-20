@@ -84,6 +84,10 @@
     "title": "Deadlift"
   },
   {
+    "slug": "decline-bench-crunch",
+    "title": "Decline Bench Crunch"
+  },
+  {
     "slug": "decline-bench-press",
     "title": "Decline Bench Press"
   },
@@ -162,6 +166,10 @@
   {
     "slug": "leg-press",
     "title": "Leg Press"
+  },
+  {
+    "slug": "leg-raises",
+    "title": "Leg Raises"
   },
   {
     "slug": "low-rows",
@@ -258,6 +266,10 @@
   {
     "slug": "seat-assisted-lat-prayers",
     "title": "Seat Assisted Lat Prayers"
+  },
+  {
+    "slug": "seated-ab-crunch",
+    "title": "Seated Ab Crunch"
   },
   {
     "slug": "seated-cable-pulldown",

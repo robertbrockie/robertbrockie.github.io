@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Leg Raises",
+    "muscles": [
+      "Abs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-08-20",
+      "timestamp": 1787236271143,
+      "sets": [
+        {
+          "weight": 0,
+          "reps": 22
+        },
+        {
+          "weight": 0,
+          "reps": 20
+        },
+        {
+          "weight": 0,
+          "reps": 18
+        },
+        {
+          "weight": 0,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}
