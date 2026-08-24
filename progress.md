@@ -4,6 +4,15 @@ title: Progress
 permalink: /progress/
 ---
 
+<div class="time-scale-container">
+  <div class="time-scale-selector">
+    <button class="time-scale-btn active" data-scale="all">All</button>
+    <button class="time-scale-btn" data-scale="6m">6 Months</button>
+    <button class="time-scale-btn" data-scale="3m">3 Months</button>
+    <button class="time-scale-btn" data-scale="1m">1 Month</button>
+  </div>
+</div>
+
 <div class="progress-chart" style="margin-bottom: 2rem;">
   <h3>Body Weight Over Time</h3>
   <canvas id="bodyWeightChart"></canvas>
@@ -65,6 +74,29 @@ permalink: /progress/
   let volumeChart = null;
   let bodyWeightChart = null;
   let bodyWeightData = [];
+  let currentExerciseData = null;
+  let currentTimeScale = 'all';
+
+  function filterDataByTimeScale(dataList, timeScale) {
+    if (timeScale === 'all') return dataList;
+    
+    const now = new Date();
+    let cutoff = new Date();
+    if (timeScale === '6m') {
+      cutoff.setMonth(now.getMonth() - 6);
+    } else if (timeScale === '3m') {
+      cutoff.setMonth(now.getMonth() - 3);
+    } else if (timeScale === '1m') {
+      cutoff.setMonth(now.getMonth() - 1);
+    }
+    
+    const yyyy = cutoff.getFullYear();
+    const mm = String(cutoff.getMonth() + 1).padStart(2, '0');
+    const dd = String(cutoff.getDate()).padStart(2, '0');
+    const cutoffStr = `${yyyy}-${mm}-${dd}`;
+    
+    return dataList.filter(entry => entry.date >= cutoffStr);
+  }
 
   function getBodyWeightForDate(dateStr) {
     if (!bodyWeightData || bodyWeightData.length === 0) return null;
@@ -98,6 +130,7 @@ permalink: /progress/
 
   async function loadExerciseData(slug) {
     if (!slug) {
+      currentExerciseData = null;
       document.getElementById('stats-container').style.display = 'none';
       document.getElementById('no-data').style.display = 'block';
       clearCharts();
@@ -107,15 +140,28 @@ permalink: /progress/
     try {
       const response = await fetch(`${BASE_URL}/${slug}.json`);
       const data = await response.json();
+      currentExerciseData = data;
 
       document.getElementById('no-data').style.display = 'none';
       document.getElementById('stats-container').style.display = 'grid';
 
-      renderCharts(data);
-      updateStats(data);
+      updateChartsAndStats();
     } catch (error) {
       console.error('Failed to load exercise data:', error);
     }
+  }
+
+  function updateChartsAndStats() {
+    if (!currentExerciseData) return;
+
+    const filteredLog = filterDataByTimeScale(currentExerciseData.log, currentTimeScale);
+    const filteredData = {
+      ...currentExerciseData,
+      log: filteredLog
+    };
+
+    renderCharts(filteredData);
+    updateStats(filteredData);
   }
 
   function updateStats(data) {
@@ -256,39 +302,49 @@ permalink: /progress/
       const data = await response.json();
       
       bodyWeightData = [...data].sort((a, b) => a.date.localeCompare(b.date));
-      const dates = bodyWeightData.map(entry => entry.date);
-      const weights = bodyWeightData.map(entry => entry.weight);
-      
-      const ctx = document.getElementById('bodyWeightChart').getContext('2d');
-      bodyWeightChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: dates,
-          datasets: [{
-            label: 'Body Weight (lbs)',
-            data: weights,
-            borderColor: '#FF9800',
-            backgroundColor: 'rgba(255, 152, 0, 0.1)',
-            fill: true,
-            tension: 0.3,
-            pointRadius: 4,
-            pointHoverRadius: 7
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { display: false }
-          },
-          scales: {
-            x: { grid: { display: false } },
-            y: { beginAtZero: false }
-          }
-        }
-      });
+      renderBodyWeightChart();
     } catch (error) {
       console.error('Failed to load body weight data:', error);
     }
+  }
+
+  function renderBodyWeightChart() {
+    if (bodyWeightChart) {
+      bodyWeightChart.destroy();
+      bodyWeightChart = null;
+    }
+
+    const filteredData = filterDataByTimeScale(bodyWeightData, currentTimeScale);
+    const dates = filteredData.map(entry => entry.date);
+    const weights = filteredData.map(entry => entry.weight);
+
+    const ctx = document.getElementById('bodyWeightChart').getContext('2d');
+    bodyWeightChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [{
+          label: 'Body Weight (lbs)',
+          data: weights,
+          borderColor: '#FF9800',
+          backgroundColor: 'rgba(255, 152, 0, 0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 4,
+          pointHoverRadius: 7
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { grid: { display: false } },
+          y: { beginAtZero: false }
+        }
+      }
+    });
   }
 
   const STRENGTH_GOALS = [
@@ -388,6 +444,18 @@ permalink: /progress/
       dashboard.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #ff5252;">Error loading goals dashboard.</div>';
     }
   }
+
+  // Set up event listeners for time scale buttons
+  document.querySelectorAll('.time-scale-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.time-scale-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      currentTimeScale = e.target.getAttribute('data-scale');
+      
+      renderBodyWeightChart();
+      updateChartsAndStats();
+    });
+  });
 
   loadExerciseIndex();
   loadBodyWeightData();
