@@ -7,6 +7,28 @@
   },
   "log": [
     {
+      "date": "2026-09-03",
+      "timestamp": 1788476412770,
+      "sets": [
+        {
+          "weight": 0,
+          "reps": 26
+        },
+        {
+          "weight": 0,
+          "reps": 22
+        },
+        {
+          "weight": 0,
+          "reps": 16
+        },
+        {
+          "weight": 0,
+          "reps": 18
+        }
+      ]
+    },
+    {
       "date": "2026-08-27",
       "timestamp": 1787872691780,
       "sets": [
