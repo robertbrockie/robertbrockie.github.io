@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "title": "Booty Builder",
+    "muscles": [
+      "Legs",
+      "Glutes"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-09-04",
+      "timestamp": 1788550128392,
+      "sets": [
+        {
+          "weight": 232,
+          "reps": 12
+        },
+        {
+          "weight": 232,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
