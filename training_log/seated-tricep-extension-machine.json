@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "Seated Tricep Extension Machine",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-09-09",
+      "timestamp": 1788995460511,
+      "sets": [
+        {
+          "weight": 60,
+          "reps": 12
+        },
+        {
+          "weight": 80,
+          "reps": 12
+        },
+        {
+          "weight": 100,
+          "reps": 10
+        },
+        {
+          "weight": 120,
+          "reps": 8
+        }
+      ]
+    }
+  ]
+}
