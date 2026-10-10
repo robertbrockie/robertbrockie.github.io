@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Tricep Extension Machine",
+    "muscles": [
+      "Triceps"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-10-10",
+      "timestamp": 1791669758374,
+      "sets": [
+        {
+          "weight": 150,
+          "reps": 15
+        },
+        {
+          "weight": 180,
+          "reps": 12
+        }
+      ]
+    }
+  ]
+}
