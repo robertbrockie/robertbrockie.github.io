@@ -312,6 +312,10 @@
     "title": "Single Leg Curl"
   },
   {
+    "slug": "single-leg-extensions",
+    "title": "Single Leg Extensions"
+  },
+  {
     "slug": "single-leg-press",
     "title": "Single Leg Press"
   },
@@ -358,6 +362,10 @@
   {
     "slug": "tricep-pushdown",
     "title": "Tricep Pushdown"
+  },
+  {
+    "slug": "v-squat",
+    "title": "V-Squat"
   },
   {
     "slug": "wide-grip-press",

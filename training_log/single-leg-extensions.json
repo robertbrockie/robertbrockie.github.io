@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Single Leg Extensions",
+    "muscles": [
+      "Quads"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-10-11",
+      "timestamp": 1791851868254,
+      "sets": [
+        {
+          "weight": 105,
+          "reps": 10
+        },
+        {
+          "weight": 105,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

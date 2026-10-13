@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "title": "V-Squat",
+    "muscles": [
+      "Legs"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-10-11",
+      "timestamp": 1791851822509,
+      "sets": [
+        {
+          "weight": 360,
+          "reps": 10
+        },
+        {
+          "weight": 410,
+          "reps": 8
+        },
+        {
+          "weight": 430,
+          "reps": 6
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "timestamp": 1791851801120,
+      "sets": [
+        {
+          "weight": 360,
+          "reps": null
+        }
+      ]
+    }
+  ]
+}
