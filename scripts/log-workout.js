@@ -150,21 +150,61 @@ async function logExercise(exerciseName, muscles, workoutDate) {
 
   const sets = [];
   let setNumber = 1;
+  let lastWeight = null;
 
   while (true) {
-    const weight = await question(`  Set ${setNumber} - Weight (lbs, or press Enter to finish): `);
+    const weightPrompt = lastWeight !== null
+      ? `  Set ${setNumber} - Weight (lbs, default: ${lastWeight}, or 'd' to finish): `
+      : `  Set ${setNumber} - Weight (lbs, or press Enter to finish): `;
 
-    if (weight.trim() === '') {
+    const weightInput = await question(weightPrompt);
+    const trimmedWeight = weightInput.trim().toLowerCase();
+
+    // Check for finish
+    if (lastWeight === null) {
+      if (trimmedWeight === '' || trimmedWeight === 'd' || trimmedWeight === 'done' || trimmedWeight === 'q') {
+        break;
+      }
+    } else {
+      if (trimmedWeight === 'd' || trimmedWeight === 'done' || trimmedWeight === 'q' || trimmedWeight === 'finish') {
+        break;
+      }
+    }
+
+    let setWeight;
+    if (trimmedWeight === '') {
+      setWeight = lastWeight;
+    } else {
+      const parsed = parseFloat(trimmedWeight);
+      if (isNaN(parsed)) {
+        console.log('  ! Invalid weight. Please enter a number or "d" to finish.');
+        continue;
+      }
+      setWeight = parsed;
+    }
+
+    let repsInput = await question(`  Set ${setNumber} - Reps: `);
+    while (repsInput.trim() === '' || isNaN(parseInt(repsInput.trim(), 10))) {
+      // If user hit Enter on weight (default) and then hits Enter or 'd' on reps, treat as finish
+      if (trimmedWeight === '' && (repsInput.trim() === '' || repsInput.trim().toLowerCase() === 'd' || repsInput.trim().toLowerCase() === 'done')) {
+        break;
+      }
+      console.log('  ! Please enter a valid number of reps.');
+      repsInput = await question(`  Set ${setNumber} - Reps: `);
+    }
+
+    if (trimmedWeight === '' && (repsInput.trim() === '' || repsInput.trim().toLowerCase() === 'd' || repsInput.trim().toLowerCase() === 'done')) {
       break;
     }
 
-    const reps = await question(`  Set ${setNumber} - Reps: `);
+    const setReps = parseInt(repsInput.trim(), 10);
 
     sets.push({
-      weight: parseFloat(weight),
-      reps: parseInt(reps, 10)
+      weight: setWeight,
+      reps: setReps
     });
 
+    lastWeight = setWeight;
     setNumber++;
   }
 
