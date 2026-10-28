@@ -33,19 +33,4 @@ layout: default
         </a>
         {% endif %}
     </nav>
-
-    {% if page.comments != false %}
-    <hr />
-
-    <div id="disqus_thread"></div>
-
-    <script src="https://flex-robertbrockie-com.disqus.com/embed.js" data-timestamp="{{ site.time | date: '%s' }}"
-        async>
-        </script>
-
-    <noscript>
-        Please enable JavaScript to view the comments powered by Disqus.
-    </noscript>
-    {% endif %}
-
 </article>
