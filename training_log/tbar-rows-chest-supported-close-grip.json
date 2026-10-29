@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Tbar Rows - Chest Supported - Close Grip",
+    "muscles": [
+      "Back"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-10-29",
+      "timestamp": 1793313930352,
+      "sets": [
+        {
+          "weight": 100,
+          "reps": 10
+        },
+        {
+          "weight": 100,
+          "reps": 7
+        }
+      ]
+    }
+  ]
+}
