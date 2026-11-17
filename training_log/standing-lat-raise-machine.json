@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "title": "Standing Lat Raise Machine",
+    "muscles": [
+      "Shoulders"
+    ]
+  },
+  "log": [
+    {
+      "date": "2026-11-17",
+      "timestamp": 1794958405318,
+      "sets": [
+        {
+          "weight": 80,
+          "reps": 12
+        },
+        {
+          "weight": 100,
+          "reps": 10
+        },
+        {
+          "weight": 120,
+          "reps": 6
+        }
+      ]
+    }
+  ]
+}
